@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins';
 }
 
 .wrapper {
@@ -34,6 +35,14 @@ h1 {
     height: 100vh;
     width: 50vw;
     right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    border: black;
+    border-radius: 4px;
 }
 
 .back-window {
@@ -45,7 +54,6 @@ h1 {
     align-items: center;
 }
 
-/* Login Screen  */
 
 .game-window {
     position: fixed;
