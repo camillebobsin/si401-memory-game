@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins';
+    text-decoration: none;
 }
 
 .wrapper {
@@ -15,7 +17,12 @@
 
 h1 {
     color: #077364;
-    font-size: 4rem;
+    font-size: 9vh;
+}
+
+h2 {
+    color: #292929;
+    font-size: 7vh;
 }
 
 #title {
@@ -34,6 +41,34 @@ h1 {
     height: 100vh;
     width: 50vw;
     right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    background-color: #EAEBED;
+    border-radius: 4px;
+    border: 2px solid #077364;   
+}
+
+input:focus {
+    border: 2px solid red;
+}
+
+button {
+    background-color: #077364;
+    border-radius: 6px;
+    width: 8vw;
+    height: 5vh;
+    border: 2px solid #077364;
+    color: #EAEBED;
+    font-size: 2.5vh;
+}
+
+button:hover {
+    border: 2px solid #0e5d52;
+    background-color: #0e5d52;
 }
 
 .back-window {
@@ -44,8 +79,6 @@ h1 {
     flex-direction: column;
     align-items: center;
 }
-
-/* Login Screen  */
 
 .game-window {
     position: fixed;
