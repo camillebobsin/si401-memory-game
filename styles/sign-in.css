@@ -1,0 +1,68 @@
+@import url(styles.css);
+
+input {
+    padding: 15px 12px;
+    width: 25vw;
+    box-sizing: border-box;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+.teste input {
+    width: 12vw;
+}
+
+.teste {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+#name {
+    margin-top: 55px;
+    background-position: 10px 12px;
+}
+
+#password {
+    background-image: url('../assets/password.png');
+    background-position: 10px 12px;
+}
+
+#sign-in {
+    display: flex;
+    margin-top: 25px;
+}
+
+h2 {
+    margin-top: 70px;
+    font-weight: normal;
+}
+
+button {
+    margin-top: 50px;
+}
+
+a {
+    color: #EAEBED;
+    margin-left: 3px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
