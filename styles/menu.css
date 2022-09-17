@@ -19,7 +19,7 @@
 
 #game-type{
     position: relative;
-    top: 1.8vh;
+    top: 1.5vh;
 }
 
 select{
@@ -71,17 +71,16 @@ select{
 
 .history-table thead th:nth-child(4){
     padding: 0 6vh;
-    padding-left: 8vh;
-    padding-right: 3vh;
+    padding-right: 3.2vh;
 }
 
 .history-table thead th:nth-child(5){
-    padding: 0;
-    padding-right: 2vh;
+    padding:0;
+    padding-right: 3vh;
 } 
 
 .history-table thead th:nth-child(6){
-    padding-left: 1.4vh;
+    padding:0;
 }  
 
 .history-table td{
