@@ -37,55 +37,35 @@ select{
     margin-top: 2vh;
 }
 
-.history-table{
-    border-collapse: collapse;
-    margin: 2vh 2vh;
-    overflow: auto;
-    
-}
-.history-table thead,tbody{
-    display:block;
+.fixed_header{
+    width: 80vh;
     table-layout: fixed;
-    position: relative;
+    border-collapse: collapse;
 }
 
-.history-table tbody{
-    overflow-y: scroll;
-    height: 30vh;
+.fixed_header tbody{
+  display:block;
+  width: 80vh;
+  overflow: auto;
+  height: 30vh;
 }
 
-.history-table thead tr{
+.fixed_header thead tr {
+   display: block;
+}
+
+.fixed_header thead {
     color:#077364;
     text-align: center;
     filter: drop-shadow(0.05rem 0.2rem 0.1rem rgb(190, 187, 187));
     font-weight: 600;
 }
 
-.history-table thead th{
-    padding: 0 2vh;
-}
 
-.history-table thead th:nth-child(3){
-    padding: 0 2vh;
-}
-
-.history-table thead th:nth-child(4){
-    padding: 0 6vh;
-    padding-right: 3.2vh;
-}
-
-.history-table thead th:nth-child(5){
-    padding:0;
-    padding-right: 3vh;
-} 
-
-.history-table thead th:nth-child(6){
-    padding:0;
-}  
-
-.history-table td{
-    padding: 1.3vh 1.5vh;
-    text-align: center;
+.fixed_header th, .fixed_header td {
+  padding: 0.5vh;
+  text-align: left;
+  width: 15vh;
 }
 
 #play-button{
@@ -125,8 +105,7 @@ select{
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 5px;
+    width: 9px;
   }
   
   
@@ -142,4 +121,5 @@ select{
     border-radius: 1.5vh;
   }
 
+  
 
