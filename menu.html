@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="back-window">
+            <h1 id="title">Jogo da</h1>
+            <h1>Memória</h1>
+        </div>
+        <div class="split-window">
+            <h2>Configure um jogo</h2>
+            <div class="menu-wrap">
+                <div class="menu-config">
+                    <h3>Tamanho do <br> Tabuleiro </h3>
+                    <select name="select">
+                        <option value = "" disabled selected class="first-option">Selecione o Tamanho</option>
+                        <option value = "3x3">3x3</option>
+                        <option value = "4x4">4x4</option>
+                        <option value = "5x5">5x5</option>
+                        <option value = "6x6">6x6</option>
+                        <option value = "7x7">7x7</option>
+                        <option value = "8x8">8x8</option>
+                    </select>
+
+                </div>
+                <div class="input-config">
+                    <h3>Tipo de Jogo</h3>
+                    <select id ="game-type" name="select">
+                        <option value = "first" disabled selected>Selecione o Tipo de Jogo</option>
+                        <option value = "contra o tempo">Contra o Tempo</option>
+                        <option value = "classico">Clássico</option>
+                    </select>
+                </div>
+            </div>
+            <h3>Histórico</h3>
+            <div class="history-wrap">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nickname</th>
+                            <th scope="col">Tabuleiro</th>
+                            <th scope="col">Modo</th>
+                            <th scope="col">Tempo</th>
+                            <th scope="col">Resultado</th>
+                            <th scope="col">Data/Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Classico</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Contra o tempo</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Contra o tempo</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Contra o tempo</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Contra o tempo</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Contra o tempo</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                        <tr>
+                            <td>Nickname123</td>
+                            <td>4x4</td>
+                            <td>Classico</td>
+                            <td>40s 38ms</td>
+                            <td>Vitória</td>
+                            <td>08/09/22 00:14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button id="play-button">Ir para o jogo</button>
+
+            <div class="button-wrap">
+                <button><img src="assets/profile-icon.png" height="60%"/></button>
+                <button id="trophy-button"><img src="assets/trophy-icon.png" height="80%" /></button>
+                <button><img src="assets/exit-icon.png" height="60%"/></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
