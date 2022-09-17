@@ -51,7 +51,7 @@ select{
 
 .history-table tbody{
     overflow-y: scroll;
-    height: 35vh;
+    height: 30vh;
 }
 
 .history-table thead tr{
