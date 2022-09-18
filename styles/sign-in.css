@@ -1,19 +1,17 @@
 @import url(styles.css);
 
+form {
+    margin-top: 50px;
+}
+
 input {
-    padding: 15px 12px;
+    height: 5.5vh;
     width: 25vw;
-    box-sizing: border-box;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    padding-left: 40px;
+    padding-left: 15px;
 }
 
-.teste input {
-    width: 12vw;
-}
-
-.teste {
+.wrap-input {
+    width: 25vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,19 +19,24 @@ input {
     flex-wrap: nowrap;
 }
 
-#name {
-    margin-top: 55px;
-    background-position: 10px 12px;
-}
-
-#password {
-    background-image: url('../assets/password.png');
-    background-position: 10px 12px;
-}
-
-#sign-in {
+.label {
+    width: 25vw;
     display: flex;
-    margin-top: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.wrap-label {
+    width: 11.6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.wrap-label input {
+    width: 11.6vw;
 }
 
 h2 {
@@ -45,24 +48,6 @@ button {
     margin-top: 50px;
 }
 
-a {
-    color: #EAEBED;
-    margin-left: 3px;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-form div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+p {
+    margin-left: 2.5px;
 }
