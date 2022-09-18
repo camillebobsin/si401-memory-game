@@ -27,12 +27,16 @@ input {
 }
 
 h2 {
-    margin-top: 200px;
+    margin-top: 16.5vh;
     font-weight: normal;
 }
 
 button {
     margin-top: 50px;
+}
+
+p {
+    color: #292929;
 }
 
 a {

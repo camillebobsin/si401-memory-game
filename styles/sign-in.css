@@ -1,7 +1,7 @@
 @import url(styles.css);
 
 form {
-    margin-top: 50px;
+    margin-top: 5vh;
 }
 
 input {
@@ -40,12 +40,12 @@ input {
 }
 
 h2 {
-    margin-top: 70px;
+    margin-top: 7vh;
     font-weight: normal;
 }
 
 button {
-    margin-top: 50px;
+    margin-top: 5vh;
 }
 
 p {
