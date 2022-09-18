@@ -51,3 +51,31 @@ button {
 p {
     margin-left: 2.5px;
 }
+
+footer {
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+#back {
+    width:6vh;
+    height:6vh;
+    border-radius: 50%;
+    background-color: #EAEBED;
+    border: transparent;
+    background-image: url(/assets/back.png);
+    background-position:50% 50%;
+    background-size: 25px;
+    background-repeat:no-repeat;  
+}
+
+#back:hover {
+    background-color: #d1d5dc;
+}
+
+button {
+    height: 6vh;
+    width: 8.4vw;
+}
