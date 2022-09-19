@@ -17,15 +17,18 @@
   text-align: center;
 }
 
-#game-type{
-    position: relative;
-    top: 1.5vh;
-}
-
 select{
     border-color: transparent transparent #fff transparent;
     border-radius: 0.5vh;
+    width: 28vh;
+    height: 4vh;
     padding: 0.5vh;
+    text-align: center;
+}
+
+#game-type{
+    position: relative;
+    top: 1.9vh;
 }
 
 #play-button{
