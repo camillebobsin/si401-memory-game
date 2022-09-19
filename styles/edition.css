@@ -1,0 +1,130 @@
+@import url(styles.css);
+
+input {
+    height: 5.5vh;
+    width: 25vw;
+    padding-left: 15px;
+}
+
+.wrap-input {
+    width: 25vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.label {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.wrap-label {
+    width: 11.6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.wrap-label input {
+    width: 11.6vw;
+}
+
+h2 {
+    font-weight: normal;
+    margin-top: 3vw;
+}
+
+p {
+    margin-left: 2.5px;
+}
+
+#back {
+    width:6vh;
+    height:6vh;
+    border-radius: 50%;
+    background-color: #EAEBED;
+    border: transparent;
+    background-image: url(/assets/back.png);
+    background-position:50% 50%;
+    background-size: 25px;
+    background-repeat:no-repeat;  
+}
+
+#back:hover {
+    background-color: #d1d5dc;
+}
+
+
+footer {
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.editprofile{
+    width: 35vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nick_fill{
+    background:#EAEBED;
+    width: 18vw;
+    height: 5.5vh;
+    border-radius: 4px;
+    border: 2px solid #077364;
+    align-items: center;
+}
+
+.editprofile button{
+    width: 9vh;
+    height: 9vh;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-size: cover;
+    border: transparent;
+    background-image: url(/assets/cachorro.jpg);
+}
+
+.editprofile button:hover {
+    opacity: 0.5;
+    background-image: url(/assets/pencil-icon.png);
+    background-size: 35px 35px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#back{
+    background-image: url(/assets/back2.png);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#save{
+    width: 16vw;
+    height: 6vh;
+}
+
+footer{
+    width: 25vw;
+    margin-top: 3vh;
+}
+
+#back{
+    height: 6vh;
+    width: 6vh;
+}
+
+#save{
+    height: 6vh;
+    width: 15vw;
+}
