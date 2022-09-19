@@ -25,6 +25,11 @@ h2 {
     font-size: 7vh;
 }
 
+h2 {
+    color: #292929;
+    font-size: 3rem;
+}
+
 #title {
     margin-top: 12vh;
 }
