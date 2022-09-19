@@ -76,6 +76,20 @@ button:hover {
     background-color: #0e5d52;
 }
 
+.rounded-button {
+    width:6vh;
+    height:6vh;
+    border-radius: 50%;
+    background-color: #EAEBED;
+    background-position: 50% 50%;
+    background-size: 25px;
+    background-repeat:no-repeat;  
+}
+
+.rounded-button:hover {
+    background-color: #d1d5dc;
+}
+
 .back-window {
     position: fixed;
     height: 100vh;

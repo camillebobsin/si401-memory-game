@@ -76,32 +76,17 @@ select{
     margin-bottom: 3vh;
 }
 
-.button-wrap button{
-    display:inline-block;
-    width:7vh;
-    height:7vh;
-    border-radius: 50%;
-    text-align:center;
-    background-color: #6BBD99;
-    border: transparent;
-    margin: 0 6px;
+#profile {
+    background-image: url(/assets/profile-icon.png);
 }
 
-.button-wrap button:hover{
-    background-color: #159886;
+#trophy {
+    background-image: url(/assets/trophy-icon.png);
+    background-size: 70%;
 }
 
-.button-wrap img{
-    height: 60%;
-}
-
-#trophy-button{
-    position: relative;
-    top:0.7vh;
-}
-
-#trophy-button img{
-    height: 80%;
+#exit {
+    background-image: url(/assets/exit-icon.png);
 }
 
 ::-webkit-scrollbar {
