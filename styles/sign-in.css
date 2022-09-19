@@ -1,0 +1,81 @@
+@import url(styles.css);
+
+form {
+    margin-top: 5vh;
+}
+
+input {
+    height: 5.5vh;
+    width: 25vw;
+    padding-left: 15px;
+}
+
+.wrap-input {
+    width: 25vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.label {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.wrap-label {
+    width: 11.6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.wrap-label input {
+    width: 11.6vw;
+}
+
+h2 {
+    margin-top: 7vh;
+    font-weight: normal;
+}
+
+button {
+    margin-top: 5vh;
+}
+
+p {
+    margin-left: 2.5px;
+}
+
+footer {
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+#back {
+    width:6vh;
+    height:6vh;
+    border-radius: 50%;
+    background-color: #EAEBED;
+    border: transparent;
+    background-image: url(/assets/back.png);
+    background-position:50% 50%;
+    background-size: 25px;
+    background-repeat:no-repeat;  
+}
+
+#back:hover {
+    background-color: #d1d5dc;
+}
+
+button {
+    height: 6vh;
+    width: 8.4vw;
+}
