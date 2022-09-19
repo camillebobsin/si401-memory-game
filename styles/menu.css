@@ -28,10 +28,23 @@ select{
     padding: 0.5vh;
 }
 
+#play-button{
+    width: 20vh;
+    border: solid black;
+    border-radius: 1.5vh;
+    border-width: thin;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}
+
+#game-link{
+    color:white;
+}
+
 .history-wrap{
     background-color: #fff;
     border: solid black;
-    border-radius: 1.25em;
+    border-radius: 1.2vh;
     border-width: 0.3vh;
     margin-bottom: 3vh;
     margin-top: 2vh;
@@ -68,27 +81,19 @@ select{
   width: 15vh;
 }
 
-#play-button{
-    width: 20vh;
-    border: solid black;
-    border-radius: 1.5vh;
-    border-width: thin;
-    margin-bottom: 3vh;
-}
-
 .button-wrap button{
     display:inline-block;
     width:7vh;
     height:7vh;
     border-radius: 50%;
     text-align:center;
-    background-color: #6BBD99;
+    background-color: #EAEBED;
     border: transparent;
     margin: 0 6px;
 }
 
 .button-wrap button:hover{
-    background-color: #159886;
+    background-color: #d1d5dc;
 }
 
 .button-wrap img{
