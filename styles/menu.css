@@ -1,0 +1,125 @@
+@import url(styles.css);
+
+.menu-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.menu-config{
+    text-align: center;
+}
+
+.input-config{
+  margin-left: 7vh;
+  text-align: center;
+}
+
+#game-type{
+    position: relative;
+    top: 1.5vh;
+}
+
+select{
+    border-color: transparent transparent #fff transparent;
+    border-radius: 0.5vh;
+    padding: 0.5vh;
+}
+
+.history-wrap{
+    background-color: #fff;
+    border: solid black;
+    border-radius: 1.25em;
+    border-width: 0.3vh;
+    margin-bottom: 3vh;
+    margin-top: 2vh;
+}
+
+.fixed_header{
+    width: 80vh;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.fixed_header tbody{
+  display:block;
+  width: 80vh;
+  overflow: auto;
+  height: 30vh;
+}
+
+.fixed_header thead tr {
+   display: block;
+}
+
+.fixed_header thead {
+    color:#077364;
+    text-align: center;
+    filter: drop-shadow(0.05rem 0.2rem 0.1rem rgb(190, 187, 187));
+    font-weight: 600;
+}
+
+
+.fixed_header th, .fixed_header td {
+  padding: 0.5vh;
+  text-align: left;
+  width: 15vh;
+}
+
+#play-button{
+    width: 20vh;
+    border: solid black;
+    border-radius: 1.5vh;
+    border-width: thin;
+    margin-bottom: 3vh;
+}
+
+.button-wrap button{
+    display:inline-block;
+    width:7vh;
+    height:7vh;
+    border-radius: 50%;
+    text-align:center;
+    background-color: #6BBD99;
+    border: transparent;
+    margin: 0 6px;
+}
+
+.button-wrap button:hover{
+    background-color: #159886;
+}
+
+.button-wrap img{
+    height: 60%;
+}
+
+#trophy-button{
+    position: relative;
+    top:0.7vh;
+}
+
+#trophy-button img{
+    height: 80%;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  
+::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+ 
+::-webkit-scrollbar-thumb {
+    background: #EAEBED;
+    border: solid black;
+    border-width: thin;
+    border-radius: 1.5vh;
+  }
+
+  
+
