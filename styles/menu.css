@@ -79,6 +79,13 @@ select{
     margin-bottom: 6vh;
 }
 
+.button-wrap {
+    width: 12vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
 #profile {
     background-image: url(/assets/profile-icon.png);
 }
