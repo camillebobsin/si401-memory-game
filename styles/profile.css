@@ -36,8 +36,8 @@ input {
 }
 
 h2 {
-    font-weight: normal;
-    margin-top: 3vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 p {
