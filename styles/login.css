@@ -31,7 +31,7 @@ h2 {
     font-weight: normal;
 }
 
-button {
+.button {
     margin-top: 50px;
 }
 
@@ -39,12 +39,12 @@ p {
     color: #292929;
 }
 
-a {
+#sign-in-button {
     color: #EAEBED;
     margin-left: 3px;
     text-shadow: 2px 2px 4px #000000;
 }
 
-a:hover {
+#sign-in-button:hover {
     text-decoration: underline;
 }
