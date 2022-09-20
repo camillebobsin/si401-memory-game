@@ -44,7 +44,7 @@ h2 {
     font-weight: normal;
 }
 
-button {
+.button, .rounded-button {
     margin-top: 5vh;
 }
 
