@@ -18,42 +18,43 @@
             <img id="logo" src="assets/logo.png" alt="Logo">
         </div>
         <div class="split-window">
-            <h2>Configure um jogo</h2>
+            <h2 id="title">Configure um jogo</h2>
             <div class="menu-wrap">
                 <div class="menu-config">
-                    <h3>Tamanho do <br> Tabuleiro </h3>
-                    <select name="select">
-                        <option value = "" disabled selected class="first-option">Selecione o Tamanho</option>
-                        <option value = "3x3">3x3</option>
-                        <option value = "4x4">4x4</option>
-                        <option value = "5x5">5x5</option>
-                        <option value = "6x6">6x6</option>
-                        <option value = "7x7">7x7</option>
-                        <option value = "8x8">8x8</option>
+                    <h3>Tamanho do Tabuleiro </h3>
+                    <select class="select-label" name="select">
+                        <option value="" disabled selected class="first-option">Selecione o Tamanho</option>
+                        <option value="3x3">3x3</option>
+                        <option value="4x4">4x4</option>
+                        <option value="5x5">5x5</option>
+                        <option value="6x6">6x6</option>
+                        <option value="7x7">7x7</option>
+                        <option value="8x8">8x8</option>
                     </select>
 
                 </div>
                 <div class="input-config">
                     <h3>Tipo de Jogo</h3>
-                    <select id ="game-type" name="select">
-                        <option value = "first" disabled selected>Selecione o Tipo de Jogo</option>
-                        <option value = "contra o tempo">Contra o Tempo</option>
-                        <option value = "classico">Clássico</option>
+                    <select class="select-label" name="select">
+                        <option value="first" disabled selected>Selecione o Tipo de Jogo</option>
+                        <option value="contra o tempo">Contra o Tempo</option>
+                        <option value="classico">Clássico</option>
                     </select>
                 </div>
             </div>
+            <a class="button" id="play-button">Ir para o jogo</a>
             <h3>Histórico</h3>
             <div class="history-wrap">
                 <table class="fixed_header">
                     <thead>
-                      <tr>
-                        <th>Nickname</th>
-                        <th>Tabuleiro</th>
-                        <th>Modo</th>
-                        <th>Tempo</th>
-                        <th>Resultado</th>
-                        <th>Data/hora</th>
-                      </tr>
+                        <tr>
+                            <th>Nickname</th>
+                            <th>Tabuleiro</th>
+                            <th>Modo</th>
+                            <th>Tempo</th>
+                            <th>Resultado</th>
+                            <th>Data/hora</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -113,11 +114,8 @@
                             <td>08/09/22 00:14</td>
                         </tr>
                     </tbody>
-                  </table>
+                </table>
             </div>
-
-            <button id="play-button">Ir para o jogo</button>
-
             <div>
                 <a href="/profile.html"><button class="rounded-button" id="profile"></button></a>
                 <a href="/ranking.html"><button class="rounded-button" id="trophy"></button></a>

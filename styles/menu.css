@@ -1,5 +1,9 @@
 @import url(styles.css);
 
+#title {
+    margin-top: 4vh;
+}
+
 .menu-wrap{
     display: flex;
     justify-content: center;
@@ -17,21 +21,24 @@
   text-align: center;
 }
 
-#game-type{
-    position: relative;
-    top: 1.5vh;
+.select-label{
+    margin-top: 1.9vh;
 }
 
 select{
     border-color: transparent transparent #fff transparent;
     border-radius: 0.5vh;
     padding: 0.5vh;
+    width: 28vh;
+    height: 4vh;
+    text-align: center;
+    margin-bottom: 3vh;
 }
 
 .history-wrap{
     background-color: #fff;
     border: solid black;
-    border-radius: 1.25em;
+    border-radius: 1.2vh;
     border-width: 0.3vh;
     margin-bottom: 3vh;
     margin-top: 2vh;
@@ -69,11 +76,7 @@ select{
 }
 
 #play-button{
-    width: 20vh;
-    border: solid black;
-    border-radius: 1.5vh;
-    border-width: thin;
-    margin-bottom: 3vh;
+    margin-bottom: 6vh;
 }
 
 #profile {
