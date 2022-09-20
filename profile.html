@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/edition.css">
+    <link rel="stylesheet" href="styles/profile.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <title>Document</title>
+    <title>Dados Pessoais</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="back-window">
@@ -20,25 +22,27 @@
             <div class="editprofile">
                 <button></button>
                 <div>
-                    <p>Nickname</p>
-                    <div class="nick_fill"><p>turbo4037</p></div>
+                    <p>Username</p>
+                    <div id="user_fill">
+                        <p id="user">turbo4037</p>
+                    </div>
                 </div>
             </div>
-           
+
             <form>
                 <div class="label">
                     <p>Nome completo:</p>
                     <input type="text" placeholder="Nome Completo">
-                </div>  
+                </div>
                 <div class="wrap-input">
                     <div class="wrap-label">
                         <p>Data de nascimento:</p>
-                    <input type="date" min="1920-09-16" max="2020-09-16">
+                        <input type="date" min="1920-09-16" max="2020-09-16">
                     </div>
                     <div class="wrap-label">
                         <p>CPF:</p>
                         <input type="text" placeholder="XXX.XXX.XXX-XX">
-                    </div>                    
+                    </div>
                 </div>
                 <div class="label">
                     <p>Telefone:</p>
@@ -50,15 +54,16 @@
                 </div>
                 <div class="label">
                     <p>Senha:</p>
-                    <input id="input_password" type="password" placeholder="senha">                   
+                    <input id="input_password" type="password" placeholder="senha">
                 </div>
             </form>
             <footer>
-                <button id="back"></button>
-                <button id="save">Salvar Alterações</button> 
+                <a class="rounded-button" id="back"href="/menu.html"></a>
+                <a class="button" id="save" href="/profile.html">Salvar Alterações</a>
             </footer>
         </div>
-        
-    </div>  
+
+    </div>
 </body>
+
 </html>

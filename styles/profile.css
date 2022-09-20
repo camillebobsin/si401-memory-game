@@ -36,30 +36,13 @@ input {
 }
 
 h2 {
-    font-weight: normal;
-    margin-top: 3vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 p {
     margin-left: 2.5px;
 }
-
-#back {
-    width:6vh;
-    height:6vh;
-    border-radius: 50%;
-    background-color: #EAEBED;
-    border: transparent;
-    background-image: url(/assets/back.png);
-    background-position:50% 50%;
-    background-size: 25px;
-    background-repeat:no-repeat;  
-}
-
-#back:hover {
-    background-color: #d1d5dc;
-}
-
 
 footer {
     width: 25vw;
@@ -75,13 +58,19 @@ footer {
     justify-content: space-evenly;
 }
 
-.nick_fill{
+#user_fill{
     background:#EAEBED;
     width: 18vw;
     height: 5.5vh;
     border-radius: 4px;
     border: 2px solid #077364;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#user {
+    margin-left: 15px;
 }
 
 .editprofile button{
@@ -102,29 +91,11 @@ footer {
     background-position: 50% 50%;
 }
 
-#back{
-    background-image: url(/assets/back2.png);
-    background-size: 25px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
-#save{
-    width: 16vw;
-    height: 6vh;
+#back {
+    background-image: url(/assets/back.png);
 }
 
 footer{
     width: 25vw;
     margin-top: 3vh;
-}
-
-#back{
-    height: 6vh;
-    width: 6vh;
-}
-
-#save{
-    height: 6vh;
-    width: 15vw;
 }

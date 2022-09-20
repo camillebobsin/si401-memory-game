@@ -44,7 +44,7 @@ h2 {
     font-weight: normal;
 }
 
-button {
+.button, .rounded-button {
     margin-top: 5vh;
 }
 
@@ -60,22 +60,5 @@ footer {
 }
 
 #back {
-    width:6vh;
-    height:6vh;
-    border-radius: 50%;
-    background-color: #EAEBED;
-    border: transparent;
     background-image: url(/assets/back.png);
-    background-position:50% 50%;
-    background-size: 25px;
-    background-repeat:no-repeat;  
-}
-
-#back:hover {
-    background-color: #d1d5dc;
-}
-
-button {
-    height: 6vh;
-    width: 8.4vw;
 }

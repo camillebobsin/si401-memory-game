@@ -23,11 +23,12 @@ h1 {
 h2 {
     color: #292929;
     font-size: 7vh;
+    font-weight: normal;
 }
 
-h2 {
+h3 {
+    font-weight: normal;
     color: #292929;
-    font-size: 3rem;
 }
 
 #title {
@@ -61,19 +62,34 @@ input:focus {
     border: 2px solid red;
 }
 
-button {
+.button {
     background-color: #077364;
-    border-radius: 6px;
-    width: 8vw;
-    height: 5vh;
+    border-radius: 1.2vh;
     border: 2px solid #077364;
     color: #EAEBED;
     font-size: 2.5vh;
+    text-align: center;
+    padding: 1vh 2vw;
 }
 
-button:hover {
+.button:hover {
     border: 2px solid #0e5d52;
     background-color: #0e5d52;
+}
+
+.rounded-button {
+    width:6vh;
+    height:6vh;
+    border-radius: 50%;
+    background-color: #EAEBED;
+    border: 2px solid #0e5d52;
+    background-position: 50% 50%;
+    background-size: 25px;
+    background-repeat:no-repeat;  
+}
+
+.rounded-button:hover {
+    background-color: #d1d5dc;
 }
 
 .back-window {
