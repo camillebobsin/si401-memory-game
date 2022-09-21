@@ -1,0 +1,67 @@
+@import url(styles.css);
+
+#gametitle{
+    margin-top: 3vh;
+    color: #077364;
+    text-align: center;
+}
+
+.game-board{
+    position: fixed;
+    height: 55vh;
+    width: 55vw;
+    top: 28vh;
+    border: 1px solid #077364;
+    background-color: rgb(246, 246, 246);
+    border-radius: 15px;
+    display: flex;
+    left: 32vw;
+}
+
+.game-info{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 22vw;
+    height: 80vh;
+}
+
+.time{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4vh;
+}
+
+#clock{
+    width: 30px;
+    margin-right: 1vw;
+}
+
+.text{
+    margin-top:3.5vh;
+}
+
+#score{
+    margin-top: 1vh;
+    background-color: #ffffff;
+    border-radius: 1.2vh;
+    border: 2px solid #077364;
+    color: #000000;
+    font-size: 3vh;
+    text-align: center;
+    padding: 1vh 2vw;
+}
+
+.cheat{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#trapaca {
+    width: 30px;
+}
+.button-wrap{
+    margin-top: 3.6vh;
+}

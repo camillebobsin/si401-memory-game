@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/game.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Game</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="game-window">
+            <h2 id="gametitle"><b>Jogo da Memória</b></h2>
+            <div class="game-board">
+                <canvas></canvas>
+            </div>
+            <div class="game-info">
+                <div class="time">
+                    <img id="clock" src="/assets/clock.png" alt="Clock">
+                    <h3>03:27</h3>
+                </div>
+                <div class="time">
+                    <img id="clock" src="/assets/hourglass.png" alt="Hourglass">
+                    <h3>--:--</h3>
+                </div>
+                <h3 class="text">Pontuação</h3>
+                <h3 id="score">48</h3>
+                <h3 class="text">Trapaça</h3>
+                    <div class="cheat">
+                        <h3>on </h3>
+                        <img id="trapaca" src="assets/onoff.png" alt="Trapaca"> <h3> off</h3>
+                    </div>
+                <div class="button-wrap">
+                <a href="/menu.html" class="button" id="desistir">Desistir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
