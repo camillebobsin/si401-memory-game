@@ -1,0 +1,134 @@
+@import url(styles.css);
+
+#podium {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    width: 40vw;
+    height: 40vh;
+}
+
+.podium-winners {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10vw;
+}
+
+#first {
+  height: 40vh;
+  z-index: 0;
+}
+
+#second {
+  height: 35vh;
+  margin-right: -1.2vw;
+}
+
+#third {
+  height: 30vh;
+  margin-left: -1.2vw;
+}
+
+.icon {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  background-color: #EAEBED;
+  background-image: url(/assets/cachorro.jpg);
+  z-index: 0;
+  background-size: cover;
+  border: 2px solid #DDEBE9 ;
+}
+
+.data-wrapper {
+  margin-top: -5vh;
+  width: 90%;
+  border-radius: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #DDEBE9;
+}
+
+#first-data {
+  height: 35vh;
+  background-color: #dacd5d;
+}
+
+#second-data {
+  height: 30vh;
+  background-color: #B9CCCA;
+}
+
+#third-data {
+  height: 25vh;
+  background-color: #a18c3f;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#history-wrap{
+    background-color: #eaebed;
+    border: solid black;
+    border-radius: 1.2vh;
+    border-width: 0.3vh;
+    margin-bottom: 3vh;
+    margin-top: 2vh;
+}
+
+#fixed_header{
+    width: 40vw;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+#fixed_header tbody{
+  display: block;
+  width: 40vw;
+  overflow: auto;
+  height: 30vh;
+}
+
+#fixed_header thead tr {
+   display: block;
+}
+
+#fixed_header thead {
+    color:#077364;
+    text-align: center;
+    filter: drop-shadow(0.05rem 0.2rem 0.1rem rgb(190, 187, 187));
+    font-weight: 600;
+}
+
+
+#fixed_header th, #fixed_header td {
+  text-align: center;
+  width: 15vh;
+}
+
+#back {
+    background-image: url(/assets/back.png);
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  
+::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+ 
+::-webkit-scrollbar-thumb {
+    background: #EAEBED;
+    border: solid black;
+    border-width: thin;
+    border-radius: 1.5vh;
+  }

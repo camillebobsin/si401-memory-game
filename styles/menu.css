@@ -1,6 +1,6 @@
 @import url(styles.css);
 
-#title {
+#config-title {
     margin-top: 4vh;
 }
 
@@ -36,7 +36,7 @@ select{
 }
 
 .history-wrap{
-    background-color: #fff;
+    background-color: #EAEBED;
     border: solid black;
     border-radius: 1.2vh;
     border-width: 0.3vh;
@@ -45,14 +45,14 @@ select{
 }
 
 .fixed_header{
-    width: 80vh;
+    width: 40vw;
     table-layout: fixed;
     border-collapse: collapse;
 }
 
 .fixed_header tbody{
   display:block;
-  width: 80vh;
+  width: 40vw;
   overflow: auto;
   height: 30vh;
 }
@@ -71,7 +71,7 @@ select{
 
 .fixed_header th, .fixed_header td {
   padding: 0.5vh;
-  text-align: left;
+  text-align: center;
   width: 15vh;
 }
 
