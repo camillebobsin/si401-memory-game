@@ -60,5 +60,5 @@ footer {
 }
 
 #back {
-    background-image: url(/assets/back.png);
+    background-image: url('../assets/back.png');
 }

@@ -87,16 +87,16 @@ select{
 }
 
 #profile {
-    background-image: url(/assets/profile-icon.png);
+    background-image: url('../assets/profile-icon.png');
 }
 
 #trophy {
-    background-image: url(/assets/trophy-icon.png);
+    background-image: url('../assets/trophy-icon.png');
     background-size: 70%;
 }
 
 #exit {
-    background-image: url(/assets/exit-icon.png);
+    background-image: url('../assets/exit-icon.png');
 }
 
 ::-webkit-scrollbar {
