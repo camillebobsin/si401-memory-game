@@ -80,19 +80,19 @@ footer {
     margin-left: 10px;
     background-size: cover;
     border: transparent;
-    background-image: url(/assets/cachorro.jpg);
+    background-image: url('../assets/cachorro.jpg');
 }
 
 .editprofile button:hover {
     opacity: 0.5;
-    background-image: url(/assets/pencil-icon.png);
+    background-image: url('../assets/pencil-icon.png');
     background-size: 35px 35px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 #back {
-    background-image: url(/assets/back.png);
+    background-image: url('../assets/back.png');
 }
 
 footer{
