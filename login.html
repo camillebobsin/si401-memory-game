@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <title>Login</title>
 </head>
 
@@ -19,15 +20,20 @@
         </div>
         <div class="split-window">
             <h2>Login</h2>
-            <input id="username" type="text" placeholder="username">
-            <input id="password" type="password" placeholder="password">
-            <a class="button" href="menu.html">Entrar</a>
+            <form name="login" onsubmit="return validateLogin()" action="menu.html">
+                <input id="username" type="text" name="username" placeholder="username">
+                <p id="userMessage"></p>
+                <input id="password" type="password" name="password" placeholder="password">
+                <p id="passMessage"></p>
+                <input type="submit" value="Entrar" class="button">
+            </form>
             <div id="sign-in">
                 <p>Ainda não tem uma conta?</p>
                 <a id="sign-in-button" href="sign-in.html">Cadastre-se</a>
             </div>
         </div>
     </div>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
