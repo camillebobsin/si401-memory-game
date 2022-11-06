@@ -1,9 +1,5 @@
 @import url(styles.css);
 
-form {
-    margin-top: 5vh;
-}
-
 input {
     height: 5.5vh;
     width: 25vw;
@@ -39,20 +35,25 @@ input {
     width: 11.6vw;
 }
 
-h2 {
+#sign-in {
     margin-top: 7vh;
     font-weight: normal;
+    margin-bottom: 5vh;
 }
 
 .button, .rounded-button {
     margin-top: 5vh;
 }
 
+.button { 
+    width: 15vw;
+}
+
 p {
     margin-left: 2.5px;
 }
 
-footer {
+#footer-buttons {
     width: 25vw;
     display: flex;
     justify-content: space-around;
@@ -61,4 +62,21 @@ footer {
 
 #back {
     background-image: url('../assets/back.png');
+}
+
+#pass-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 25vw;
+}
+
+#nameMessage, #dateMessage, #cpfMessage, #phoneMessage, #emailMessage, #userMessage, #passMessage {
+    color: red;
+    font-size: 1.5vh;
+} 
+
+#cpfMessage {
+    width: 12.6vw;
 }

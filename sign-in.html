@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/sign-in.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <title>Cadastro</title>
 </head>
 
@@ -18,51 +19,61 @@
             <img id="logo" src="assets/logo.png" alt="Logo">
         </div>
         <div class="split-window">
-            <h2>Cadastro</h2>
-            <form>
+            <h2 id="sign-in">Cadastro</h2>
+            <form name="sign-in" onsubmit="return validateSignIn()" action="login.html" novalidate>
                 <div class="label">
-                    <p>Nome completo:</p>
-                    <input type="text">
+                    <p id="first-title">Nome completo:</p>
+                    <input type="text" name="name" id="name">
+                    <p id="nameMessage"></p>
                 </div>
                 <div class="wrap-input">
                     <div class="wrap-label">
                         <p>Data de nascimento:</p>
-                        <input type="date" min="1920-09-16" max="2020-09-16">
+                        <input type="date" name="date" id="date">
+                        <p id="dateMessage"></p>
                     </div>
                     <div class="wrap-label">
                         <p>CPF:</p>
-                        <input type="text" placeholder="XXX.XXX.XXX-XX">
+                        <input type="text" placeholder="XXX.XXX.XXX-XX" name="cpf" id="cpf">
+                        <p id="cpfMessage"></p>
                     </div>
                 </div>
                 <div class="label">
                     <p>Telefone:</p>
-                    <input type="text" placeholder="(XX)XXXXX-XXXX">
+                    <input type="text" placeholder="(XX)XXXXX-XXXX" name="phone" id="phone">
+                    <p id="phoneMessage"></p>
                 </div>
                 <div class="label">
                     <p>Email:</p>
-                    <input type="email">
+                    <input type="email" name="email" id="email">
+                    <p id="emailMessage"></p>
                 </div>
                 <div class="label">
                     <p>Username:</p>
-                    <input type="text">
+                    <input type="text" name="username" id="username">
+                    <p id="userMessage"></p>
                 </div>
-                <div class="wrap-input">
-                    <div class="wrap-label">
-                        <p>Senha:</p>
-                        <input type="password">
+                <div id="pass-label">
+                    <div class="wrap-input">
+                        <div class="wrap-label">
+                            <p>Senha:</p>
+                            <input type="password" name="pass1" id="pass1">
+                        </div>
+                        <div class="wrap-label">
+                            <p>Confirme a senha:</p>
+                            <input type="password" name="pass2" id="pass2">
+                        </div>
                     </div>
-                    <div class="wrap-label">
-                        <p>Confirme a senha:</p>
-                        <input type="password">
-                    </div>
+                    <p id="passMessage"></p>
+                </div>
+                <div id="footer-buttons">
+                    <a class="rounded-button" id="back" href="login.html"></a>
+                    <input type="submit" value="Cadastrar" class="button">
                 </div>
             </form>
-            <footer>
-                <a class="rounded-button" id="back" href="login.html"></a>
-                <a class="button" href="login.html">Cadastrar</a>
-            </footer>
         </div>
     </div>
+    <script src="js/sign-in.js"></script>
 </body>
 
 </html>
