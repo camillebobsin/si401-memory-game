@@ -14,8 +14,16 @@
     border: 1px solid #077364;
     background-color: rgb(246, 246, 246);
     border-radius: 15px;
-    display: flex;
     left: 32vw;
+    display: grid;
+    padding: 10px;
+    grid-gap: 10px;
+}
+
+.too-big-board {
+    padding: 5px;
+    display: grid;
+    grid-gap: 5px;
 }
 
 .game-info{
