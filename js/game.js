@@ -3,15 +3,17 @@ let game = localStorage.getItem("game");
 let animals = [];
 let cardBlock = [];
 let click = 0;
-let mouse = true;
+let mouse = false;
 let act = -1;
 let lastCtx = null;
+let trapaca = false;
+let win = false;
+
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+
 let seconds = 0;
 let minutes = 0;
 let timer = false;
-
-
 
 
 function checkFlag() {
@@ -32,14 +34,14 @@ function checkFlag() {
 }
 checkFlag();
 
-
-
-
 window.onload = () => {
+    mouse = true;
     createBoard(board);
     fillBoard(board);
     clickableCards();
 };
+
+document.getElementById("trapaca").addEventListener("click", trapacaButton);
 
 function createBoard(board) {
     let numberOfColumns = board[0];
@@ -93,7 +95,7 @@ function fillBoard() {
 
 function clickableCards() {
     let cards = document.getElementsByTagName("canvas");
-    for (let i = 0; i < cards.length ** 2; i++) {
+    for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", turnCard, false);
     }
 }
@@ -101,28 +103,65 @@ function clickableCards() {
 async function turnCard() {
     if (mouse && !cardBlock[this.id]) {
         let ctx = this.getContext("2d");
-        drawCard(ctx, this.width, this.height, this.id);
-        click++;
-        timer = true;
-        if (click % 2 == 0) {
-            if (animals[this.id] != animals[act]) {
-                mouse = false;
-                await sleep(920);
-                drawBackground(ctx, this.width, this.height);
-                drawBackground(lastCtx, this.width, this.height);
+        if (ctx != lastCtx && !trapaca) { // checks double click on card
+            drawCard(ctx, this.width, this.height, this.id);
+            click++;
+            timer = true;
+            document.getElementById("score").innerHTML = click;
+            if (click % 2 == 0) {
+                if (animals[this.id] != animals[act]) {
+                    mouse = false;
+                    await sleep(920);
+                    drawBackground(ctx, this.width, this.height);
+                    drawBackground(lastCtx, this.width, this.height);
+                }
+                else {
+                    cardBlock[this.id] = true;
+                    cardBlock[act] = true;
+                }
             }
             else {
-                cardBlock[this.id] = true;
-                cardBlock[act] = true;
+                act = this.id;
+                lastCtx = ctx;
             }
+            mouse = true;
         }
-        else {
-            act = this.id;
-            lastCtx = ctx;
-        }
-        mouse = true;
     }
-    
+    if (checkWin()) {
+        console.log("Acabou Guilherme");
+        // TODO POPUP MALUCO
+    }
+}
+
+function trapacaButton() {
+    if (!trapaca) { // setting trapaca on
+        this.style.transform = "rotate(180deg)";
+        let cards = document.getElementsByTagName("canvas");
+        for (let i = 0; i < cards.length; i++) { // show every card
+            let ctx = cards[i].getContext("2d");
+            drawCard(ctx, cards[0].width, cards[0].height, i);
+        }
+        trapaca = true;
+    }
+    else {
+        this.style.transform = "";
+        let cards = document.getElementsByTagName("canvas");
+        for (let i = 0; i < cards.length; i++) { // show every card
+            let ctx = cards[i].getContext("2d");
+            if (!cardBlock[i]) // checks if already discovered
+                drawBackground(ctx, cards[0].width, cards[0].height);
+        }
+        trapaca = false;
+    }
+}
+
+function checkWin() {
+    let sum = 0;
+    for (let i = 0; i < cardBlock.length; i++) {
+        if (cardBlock[i])
+            sum++;
+    }
+    return sum == cardBlock.length ? true : false;
 }
 
 function drawBackground(ctx, width, height) {
@@ -149,7 +188,6 @@ function classicTimer(){
     }
     document.getElementById("classic-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
 }
-
 
 function runnerTimer(){
     if(seconds == 0){
