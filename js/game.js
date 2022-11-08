@@ -9,6 +9,7 @@ let lastCtx = null;
 let trapaca = false;
 let win = false;
 let stopFunc = false;
+let aux = 0;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -26,10 +27,10 @@ function checkFlag() {
             classicTimer();
         }, 1000);
         }else {
-            minutes = getBoardTime();
+            minutes,aux = getBoardTime();
             setInterval(() => {
                 runnerTimer();
-            }, 1000);
+            }, 100);
         }
         
     }
@@ -206,7 +207,8 @@ function runnerTimer(){
             alert("ganhou");
             stopFunc = true;
         }
-        else if(minutes == 0 && seconds == 0){
+        else if(minutes == 0 && seconds === 0){
+            alert("perdeu");
             stopFunc = true;
         }
         else{
@@ -215,6 +217,7 @@ function runnerTimer(){
             seconds = 60;
         } else seconds -= 1;
         document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
+        document.getElementById("classic-timer").innerText = (aux-1 - minutes).toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ (60 - seconds).toLocaleString(undefined,{minimumIntegerDigits: 2});
     }
 }
 }
@@ -226,10 +229,13 @@ function getBoardTime(){
             break;
         case "4x4":
             minutes = 2;
+            break;
         case "6x6":
             minutes = 3;
+            break;
         case "8x8":
             minutes = 5;
+            break;
         default:
             break;
     }
