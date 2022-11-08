@@ -30,7 +30,7 @@ function checkFlag() {
             minutes,aux = getBoardTime();
             setInterval(() => {
                 runnerTimer();
-            }, 100);
+            }, 1000);
         }
         
     }
@@ -132,10 +132,6 @@ async function turnCard() {
             mouse = true;
         }
     }
-    if (checkWin()) {
-        console.log("Acabou Guilherme");
-        // TODO POPUP MALUCO
-    }
 }
 
 function trapacaButton() {
@@ -188,7 +184,8 @@ function drawCard(ctx, width, height, id) {
 function classicTimer(){
     if(stopFunc === false){
         if(checkWin()){
-            alert("ganhou");
+            alert("Você Ganhou!!");
+            window.location.replace("menu.html");
             stopFunc = true;
         }else{
         seconds += 1;
@@ -204,11 +201,13 @@ function classicTimer(){
 function runnerTimer(){
     if(stopFunc === false){
         if(checkWin()){
-            alert("ganhou");
+            alert("Você Ganhou!!");
+            window.location.replace("menu.html");
             stopFunc = true;
         }
         else if(minutes == 0 && seconds === 0){
-            alert("perdeu");
+            alert("Você Perdeu");
+            window.location.replace("menu.html");
             stopFunc = true;
         }
         else{
@@ -231,10 +230,10 @@ function getBoardTime(){
             minutes = 2;
             break;
         case "6x6":
-            minutes = 3;
+            minutes = 4;
             break;
         case "8x8":
-            minutes = 5;
+            minutes = 10;
             break;
         default:
             break;
