@@ -1,6 +1,7 @@
 let board = localStorage.getItem("board");
 let game = localStorage.getItem("game");
 let animals = [];
+let cardBlock = [];
 let click = 0;
 let mouse = true;
 let act = -1;
@@ -9,7 +10,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 window.onload = () => {
     createBoard(board);
-    animals = fillBoard(board);
+    fillBoard(board);
     clickableCards();
 };
 
@@ -51,16 +52,16 @@ function shuffleArray(array) {
 
 function fillBoard() {
     let cards = document.getElementsByTagName("canvas");
-    let animals = [];
     while (animals.length != cards.length) {
         newNumber = parseInt(Math.random() * 36);
         if (!animals.includes(newNumber)) {
             animals.push(newNumber);
             animals.push(newNumber);
+            cardBlock.push(false);
+            cardBlock.push(false);
         }
     }
     shuffleArray(animals);
-    return animals;
 }
 
 function clickableCards() {
@@ -70,31 +71,28 @@ function clickableCards() {
     }
 }
 
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-// }
-
 async function turnCard() {
-    if (mouse) {
+    if (mouse && !cardBlock[this.id]) {
         let ctx = this.getContext("2d");
         drawCard(ctx, this.width, this.height, this.id);
         click++;
         if (click % 2 == 0) {
-            if (animals[this.id] != act) {
-                // let ctx = this.getContext("2d");
+            if (animals[this.id] != animals[act]) {
                 mouse = false;
                 await sleep(920);
-                mouse = true;
                 drawBackground(ctx, this.width, this.height);
                 drawBackground(lastCtx, this.width, this.height);
-                
-                // TODO other card
+            }
+            else {
+                cardBlock[this.id] = true;
+                cardBlock[act] = true;
             }
         }
         else {
-            act = animals[this.id];
+            act = this.id;
             lastCtx = ctx;
         }
+        mouse = true;
     }
 }
 
