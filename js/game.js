@@ -8,6 +8,7 @@ let act = -1;
 let lastCtx = null;
 let trapaca = false;
 let win = false;
+let stopFunc = false;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -30,6 +31,7 @@ function checkFlag() {
                 runnerTimer();
             }, 1000);
         }
+        
     }
 }
 checkFlag();
@@ -93,6 +95,7 @@ function fillBoard() {
     shuffleArray(animals);
 }
 
+
 function clickableCards() {
     let cards = document.getElementsByTagName("canvas");
     for (let i = 0; i < cards.length; i++) {
@@ -100,8 +103,9 @@ function clickableCards() {
     }
 }
 
+
 async function turnCard() {
-    if (mouse && !cardBlock[this.id]) {
+    if (mouse && !cardBlock[this.id]  && stopFunc === false ) {
         let ctx = this.getContext("2d");
         if (ctx != lastCtx && !trapaca) { // checks double click on card
             drawCard(ctx, this.width, this.height, this.id);
@@ -181,21 +185,38 @@ function drawCard(ctx, width, height, id) {
 }
 
 function classicTimer(){
-    seconds += 1;
-    if(seconds == 60){
-        minutes+= 1;
-        seconds = 0;
+    if(stopFunc === false){
+        if(checkWin()){
+            alert("ganhou");
+            stopFunc = true;
+        }else{
+        seconds += 1;
+        if(seconds == 60){
+            minutes+= 1;
+            seconds = 0;
+        }
+        document.getElementById("classic-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
     }
-    document.getElementById("classic-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
+    }
 }
 
 function runnerTimer(){
-    if(seconds == 0){
-        minutes -= 1;
-        seconds = 60;
-    } else seconds -= 1;
-    document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
-
+    if(stopFunc === false){
+        if(checkWin()){
+            alert("ganhou");
+            stopFunc = true;
+        }
+        else if(minutes == 0 && seconds == 0){
+            stopFunc = true;
+        }
+        else{
+        if(seconds == 0){
+            minutes -= 1;
+            seconds = 60;
+        } else seconds -= 1;
+        document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
+    }
+}
 }
 
 function getBoardTime(){
