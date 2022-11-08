@@ -11,6 +11,29 @@ let win = false;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+let seconds = 0;
+let minutes = 0;
+let timer = false;
+
+
+function checkFlag() {
+    if(timer === false) {
+       window.setTimeout(checkFlag, 10); 
+    } else {
+        if(game == "classico"){
+            setInterval(() => {
+            classicTimer();
+        }, 1000);
+        }else {
+            minutes = getBoardTime();
+            setInterval(() => {
+                runnerTimer();
+            }, 1000);
+        }
+    }
+}
+checkFlag();
+
 window.onload = () => {
     mouse = true;
     createBoard(board);
@@ -83,6 +106,7 @@ async function turnCard() {
         if (ctx != lastCtx && !trapaca) { // checks double click on card
             drawCard(ctx, this.width, this.height, this.id);
             click++;
+            timer = true;
             document.getElementById("score").innerHTML = click;
             if (click % 2 == 0) {
                 if (animals[this.id] != animals[act]) {
@@ -154,4 +178,39 @@ function drawCard(ctx, width, height, id) {
         ctx.drawImage(img, 0, 0, width, height);
     }
     img.src = "assets/cards/card_" + animals[id] + ".jpg";
+}
+
+function classicTimer(){
+    seconds += 1;
+    if(seconds == 60){
+        minutes+= 1;
+        seconds = 0;
+    }
+    document.getElementById("classic-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
+}
+
+function runnerTimer(){
+    if(seconds == 0){
+        minutes -= 1;
+        seconds = 60;
+    } else seconds -= 1;
+    document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
+
+}
+
+function getBoardTime(){
+    switch (board) {
+        case "2x2":
+            minutes = 1;
+            break;
+        case "4x4":
+            minutes = 2;
+        case "6x6":
+            minutes = 3;
+        case "8x8":
+            minutes = 5;
+        default:
+            break;
+    }
+    return minutes;   
 }
