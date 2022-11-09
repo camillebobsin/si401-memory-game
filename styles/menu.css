@@ -1,9 +1,13 @@
 @import url(styles.css);
 
-/* TODO CONSERTAR BOTÃO */
-
 #config-title {
     margin-top: 4vh;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .menu-wrap{
@@ -11,7 +15,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 4vh;
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
 }
 
 .menu-config{
@@ -78,7 +82,7 @@ select{
 }
 
 #play-button{
-    margin-bottom: 6vh;
+    margin-bottom: 5vh;
 }
 
 .button-wrap {

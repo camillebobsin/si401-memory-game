@@ -20,25 +20,27 @@
         </div>
         <div class="split-window">
             <h2 id="config-title">Configure um jogo</h2>
-            <form class="menu-wrap" name="menu" action="game.html" onsubmit="return getGameAndBoard()">
-                <div class="menu-config">
-                    <h3>Tamanho do Tabuleiro </h3>
-                    <select class="select-label" name="board">
-                        <option value="" disabled selected class="first-option">Selecione o Tamanho</option>
-                        <option value="2x2">2x2</option>
-                        <option value="4x4">4x4</option>
-                        <option value="6x6">6x6</option>
-                        <option value="8x8">8x8</option>
-                    </select>
+            <form name="menu" action="game.html" onsubmit="return getGameAndBoard()">
+                <div class="menu-wrap">
+                    <div class="menu-config">
+                        <h3>Tamanho do Tabuleiro </h3>
+                        <select class="select-label" name="board">
+                            <option value="" disabled selected class="first-option">Selecione o Tamanho</option>
+                            <option value="2x2">2x2</option>
+                            <option value="4x4">4x4</option>
+                            <option value="6x6">6x6</option>
+                            <option value="8x8">8x8</option>
+                        </select>
 
-                </div>
-                <div class="input-config">
-                    <h3>Tipo de Jogo</h3>
-                    <select class="select-label" name="game">
-                        <option value="first" disabled selected>Selecione o Tipo de Jogo</option>
-                        <option value="contra o tempo">Contra o Tempo</option>
-                        <option value="classico">Clássico</option>
-                    </select>
+                    </div>
+                    <div class="input-config">
+                        <h3>Tipo de Jogo</h3>
+                        <select class="select-label" name="game">
+                            <option value="first" disabled selected>Selecione o Tipo de Jogo</option>
+                            <option value="contra o tempo">Contra o Tempo</option>
+                            <option value="classico">Clássico</option>
+                        </select>
+                    </div>
                 </div>
                 <input class="button" id="play-button" type="submit" value="Ir para o jogo">
             </form>
