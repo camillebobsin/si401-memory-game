@@ -189,7 +189,7 @@ function classicTimer(){
             stopFunc = true;
         }else{
         seconds += 1;
-        if(seconds == 60){
+        if(seconds == 59){
             minutes+= 1;
             seconds = 0;
         }
@@ -213,10 +213,10 @@ function runnerTimer(){
         else{
         if(seconds == 0){
             minutes -= 1;
-            seconds = 60;
+            seconds = 59;
         } else seconds -= 1;
         document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
-        document.getElementById("classic-timer").innerText = (aux-1 - minutes).toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ (60 - seconds).toLocaleString(undefined,{minimumIntegerDigits: 2});
+        document.getElementById("classic-timer").innerText = (aux-1 - minutes).toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ (59 - seconds).toLocaleString(undefined,{minimumIntegerDigits: 2});
     }
 }
 }
