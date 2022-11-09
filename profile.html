@@ -20,7 +20,13 @@
         <div class="split-window">
             <h2>Perfil</h2>
             <div class="editprofile">
-                <button></button>
+                <button type="submit" class="picture" id="act" onclick="openPopup()"></button>
+                <div class="popup" id="popup">
+                    <button class="picture" id="whale"></button>
+                    <button class="picture" id="sheep"></button>
+                    <button class="picture" id="tiger"></button>
+                    <button class="picture" id="panda"></button>
+                </div>
                 <div>
                     <p>Username</p>
                     <div id="user_fill">
@@ -62,8 +68,8 @@
                 <a class="button" id="save" href="profile.html">Salvar Alterações</a>
             </footer>
         </div>
-
     </div>
+    <script src="js/profile.js"></script>
 </body>
 
 </html>

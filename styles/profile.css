@@ -73,22 +73,56 @@ footer {
     margin-left: 15px;
 }
 
-.editprofile button{
+.picture{
     width: 9vh;
     height: 9vh;
     border-radius: 50%;
     margin-left: 10px;
     background-size: cover;
     border: transparent;
-    background-image: url('../assets/cachorro.jpg');
 }
 
-.editprofile button:hover {
+#act {
+    background-image: url('../assets/cards/card_0.jpg');
+}
+
+#sheep {
+    background-image: url('../assets/cards/card_0.jpg');
+}
+
+#whale {
+    background-image: url('../assets/cards/card_7.jpg');
+}
+
+#tiger {
+    background-image: url('../assets/cards/card_10.jpg');
+}
+
+#panda {
+    background-image: url('../assets/cards/card_20.jpg');
+}
+
+#act:hover {
     opacity: 0.5;
     background-image: url('../assets/pencil-icon.png');
     background-size: 35px 35px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+
+.popup {
+    display: flex;
+    background: #077364;
+    border-radius: 4px;
+    position: absolute;
+    top: 25.3%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.open-popup {
+    visibility: visible;
 }
 
 #back {
