@@ -19,10 +19,10 @@
             <img id="logo" src="assets/logo.png" alt="Logo">
         </div>
         <div class="split-window">
-            <h2 id="config-title">Configure um jogo</h2>
+            <h2 id="config-title">Configure seu jogo</h2>
             <form name="menu" action="game.html" onsubmit="return getGameAndBoard()">
                 <div class="menu-wrap">
-                    <div class="menu-config">
+                    <div class="input-config">
                         <h3>Tamanho do Tabuleiro </h3>
                         <select class="select-label" name="board">
                             <option value="" disabled selected class="first-option">Selecione o Tamanho</option>
@@ -31,7 +31,7 @@
                             <option value="6x6">6x6</option>
                             <option value="8x8">8x8</option>
                         </select>
-
+                        <p id="boardMessage"></p>
                     </div>
                     <div class="input-config">
                         <h3>Tipo de Jogo</h3>
@@ -40,11 +40,12 @@
                             <option value="contra o tempo">Contra o Tempo</option>
                             <option value="classico">Clássico</option>
                         </select>
+                        <p id="gameMessage"></p>
                     </div>
                 </div>
                 <input class="button" id="play-button" type="submit" value="Ir para o jogo">
             </form>
-            <h3>Histórico</h3>
+            <h3 id="historic">Histórico</h3>
             <div class="history-wrap">
                 <table class="fixed_header">
                     <thead>

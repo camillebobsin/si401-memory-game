@@ -1,34 +1,38 @@
 @import url(styles.css);
 
 #config-title {
-    margin-top: 4vh;
+    margin-top: 2vh;
 }
 
 form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 35vw;
 }
 
 .menu-wrap{
+    width: 35vw;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 4vh;
     margin-bottom: 3vh;
 }
 
-.menu-config{
-    text-align: center;
-}
 
 .input-config{
-  margin-left: 7vh;
+  display: flex;
   text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 12vh;
 }
 
 .select-label{
-    margin-top: 1.9vh;
+    margin-top: 1vh;
+    border: 2px solid #077364;
 }
 
 select{
@@ -38,7 +42,6 @@ select{
     width: 28vh;
     height: 4vh;
     text-align: center;
-    margin-bottom: 3vh;
 }
 
 .history-wrap{
@@ -107,12 +110,12 @@ select{
 
 ::-webkit-scrollbar {
     width: 9px;
-  }
+}
   
   
 ::-webkit-scrollbar-track {
     background: transparent;
-  }
+}
   
  
 ::-webkit-scrollbar-thumb {
@@ -120,7 +123,14 @@ select{
     border: solid black;
     border-width: thin;
     border-radius: 1.5vh;
-  }
+}
 
-  
+#boardMessage, #gameMessage {
+    color: red;
+    font-size: 1.5vh;
+}
 
+#historic {
+    margin-top: 2vh;
+    font-weight: 600;
+}
