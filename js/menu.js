@@ -32,7 +32,26 @@ function getGameAndBoard() {
         return false;
     }
     else {
-        localStorage.setItem("board", board); 
+        localStorage.setItem("board", board);
         localStorage.setItem("game", game);
     }
+}
+
+document.getElementById("not-quit").addEventListener("click", closePopup);
+document.getElementById("quit").addEventListener("click", quitAccount);
+
+function openPopup() {
+    let popup = document.getElementById("popup");
+    popup.classList.add("open-popup");
+}
+
+function closePopup() {
+    let popup = document.getElementById("popup");
+    popup.classList.remove("open-popup");
+}
+
+function quitAccount() {
+    let url = window.location.href;
+    url = url.replace('menu', 'login');
+    window.location.href = url;
 }

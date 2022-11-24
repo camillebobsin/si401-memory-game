@@ -134,3 +134,42 @@ select{
     margin-top: 2vh;
     font-weight: 600;
 }
+
+.popup {
+    width: 35vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    background: #077364;
+    border-radius: 10px;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.open-popup {
+    visibility: visible;
+}
+
+.text-pop {
+    font-weight: 600;
+    font-size: 2vh;
+}
+
+.button-pop {
+    width: 20vw;
+    height: 4vh;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}

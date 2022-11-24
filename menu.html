@@ -121,7 +121,13 @@
             <div class="button-wrap">
                 <a href="profile.html" class="rounded-button" id="profile"></a>
                 <a href="ranking.html" class="rounded-button" id="trophy"></a>
-                <a href="login.html" class="rounded-button" id="exit"></a>
+                <a class="rounded-button" id="exit" onclick="openPopup()"></a>
+            </div>
+            <div class="popup" id="popup">
+                <p class="text-pop">Opa! Você será desconectado</p>
+                <p class="text-pop">Tem certeza que deseja sair?</p>
+                <a class="button-pop" id="not-quit">Não, voltar para o menu</a>
+                <a class="button-pop" id="quit">Sim, sair e ir para login</a>
             </div>
         </div>
     </div>
