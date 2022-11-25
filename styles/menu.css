@@ -86,6 +86,7 @@ select{
 
 #play-button{
     margin-bottom: 5vh;
+    cursor: pointer;
 }
 
 .button-wrap {
@@ -106,6 +107,7 @@ select{
 
 #exit {
     background-image: url('../assets/exit-icon.png');
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {
