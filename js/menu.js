@@ -51,7 +51,5 @@ function closePopup() {
 }
 
 function quitAccount() {
-    let url = window.location.href;
-    url = url.replace('menu', 'login');
-    window.location.href = url;
+    window.location.replace("login.html");
 }

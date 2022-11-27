@@ -138,8 +138,8 @@ select{
 }
 
 .popup {
-    width: 35vw;
-    height: 35vh;
+    width: 25vw;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -148,7 +148,7 @@ select{
     background: #077364;
     border-radius: 10px;
     position: absolute;
-    top: 48%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     visibility: hidden;
@@ -164,7 +164,7 @@ select{
 }
 
 .button-pop {
-    width: 20vw;
+    width: 18vw;
     height: 4vh;
     background-color: white;
     color: black;
