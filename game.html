@@ -35,8 +35,26 @@
                         <img id="trapaca" src="assets/onoff.png" alt="Trapaca"> <h3> off</h3>
                     </div>
                 <div class="button-wrap">
-                <a href="menu.html" class="button" id="desistir">Desistir</a>
+                <a class="button" id="desistir" onclick="openPopup()">Desistir</a>
                 </div>
+            </div>
+            <div class="popup" id="popup">
+                <p class="text-pop">Opa! Você sairá do jogo</p>
+                <p class="text-pop">Tem certeza que deseja sair?</p>
+                <a class="button-pop" id="not-quit">Não, voltar para o jogo</a>
+                <a class="button-pop" id="quit-game">Sim, voltar para o menu</a>
+            </div>
+            <div class="popup" id="win-popup">
+                <p class="text-pop">Parabéns! Você ganhou</p>
+                <p class="text-pop">O que deseja fazer?</p>
+                <a class="button-pop" id="again">Jogar novamente no mesmo modo</a>
+                <a class="button-pop" id="not-again">Sair para o menu</a>
+            </div>
+            <div class="popup" id="lose-popup">
+                <p class="text-pop">Poxa! Você perdeu :(</p>
+                <p class="text-pop">O que deseja fazer?</p>
+                <a class="button-pop" id="lose-again">Jogar novamente no mesmo modo</a>
+                <a class="button-pop" id="lose-not-again">Sair para o menu</a>
             </div>
         </div>
     </div>

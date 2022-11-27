@@ -19,20 +19,20 @@ let timer = false;
 
 
 function checkFlag() {
-    if(timer === false) {
-       window.setTimeout(checkFlag, 10); 
+    if (timer === false) {
+        window.setTimeout(checkFlag, 10);
     } else {
-        if(game == "classico"){
+        if (game == "classico") {
             setInterval(() => {
-            classicTimer();
-        }, 1000);
-        }else {
-            minutes,aux = getBoardTime();
+                classicTimer();
+            }, 1000);
+        } else {
+            minutes, aux = getBoardTime();
             setInterval(() => {
                 runnerTimer();
             }, 1000);
         }
-        
+
     }
 }
 checkFlag();
@@ -106,7 +106,7 @@ function clickableCards() {
 
 
 async function turnCard() {
-    if (mouse && !cardBlock[this.id]  && stopFunc === false ) {
+    if (mouse && !cardBlock[this.id] && stopFunc === false) {
         let ctx = this.getContext("2d");
         if (ctx != lastCtx && !trapaca) { // checks double click on card
             drawCard(ctx, this.width, this.height, this.id);
@@ -181,47 +181,44 @@ function drawCard(ctx, width, height, id) {
     img.src = "assets/cards/card_" + animals[id] + ".jpg";
 }
 
-function classicTimer(){
-    if(stopFunc === false){
-        if(checkWin()){
-            alert("Você Ganhou!!");
-            window.location.replace("menu.html");
+function classicTimer() {
+    if (stopFunc === false) {
+        if (checkWin()) {
+            winPopup();
             stopFunc = true;
-        }else{
-        seconds += 1;
-        if(seconds == 59){
-            minutes+= 1;
-            seconds = 0;
+        } else {
+            seconds += 1;
+            if (seconds == 59) {
+                minutes += 1;
+                seconds = 0;
+            }
+            document.getElementById("classic-timer").innerText = minutes.toLocaleString(undefined, { minimumIntegerDigits: 2 }) + ":" + seconds.toLocaleString(undefined, { minimumIntegerDigits: 2 });
         }
-        document.getElementById("classic-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
-    }
     }
 }
 
-function runnerTimer(){
-    if(stopFunc === false){
-        if(checkWin()){
-            alert("Você Ganhou!!");
-            window.location.replace("menu.html");
+function runnerTimer() {
+    if (stopFunc === false) {
+        if (checkWin()) {
+            winPopup();
             stopFunc = true;
         }
-        else if(minutes == 0 && seconds === 0){
-            alert("Você Perdeu");
-            window.location.replace("menu.html");
+        else if (minutes == 0 && seconds === 0) {
+            losePopup();
             stopFunc = true;
         }
-        else{
-        if(seconds == 0){
-            minutes -= 1;
-            seconds = 59;
-        } else seconds -= 1;
-        document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ seconds.toLocaleString(undefined,{minimumIntegerDigits: 2});
-        document.getElementById("classic-timer").innerText = (aux-1 - minutes).toLocaleString(undefined,{minimumIntegerDigits: 2}) + ":"+ (59 - seconds).toLocaleString(undefined,{minimumIntegerDigits: 2});
+        else {
+            if (seconds == 0) {
+                minutes -= 1;
+                seconds = 59;
+            } else seconds -= 1;
+            document.getElementById("runner-timer").innerText = minutes.toLocaleString(undefined, { minimumIntegerDigits: 2 }) + ":" + seconds.toLocaleString(undefined, { minimumIntegerDigits: 2 });
+            document.getElementById("classic-timer").innerText = (aux - 1 - minutes).toLocaleString(undefined, { minimumIntegerDigits: 2 }) + ":" + (59 - seconds).toLocaleString(undefined, { minimumIntegerDigits: 2 });
+        }
     }
 }
-}
 
-function getBoardTime(){
+function getBoardTime() {
     switch (board) {
         case "2x2":
             minutes = 1;
@@ -238,5 +235,41 @@ function getBoardTime(){
         default:
             break;
     }
-    return minutes;   
+    return minutes;
+}
+
+document.getElementById("not-quit").addEventListener("click", closePopup);
+document.getElementById("quit-game").addEventListener("click", quitGame);
+document.getElementById("again").addEventListener("click", playAgain);
+document.getElementById("not-again").addEventListener("click", quitGame);
+document.getElementById("lose-again").addEventListener("click", playAgain);
+document.getElementById("lose-not-again").addEventListener("click", quitGame);
+
+function openPopup() {
+    let popup = document.getElementById("popup");
+    popup.classList.add("open-popup");
+}
+
+function closePopup() {
+    let popup = document.getElementById("popup");
+    popup.classList.remove("open-popup");
+}
+
+function quitGame() {
+    window.location.replace("menu.html");
+}
+
+function playAgain() {
+    let url = window.location.href;
+    window.location.href = url;
+}
+
+function winPopup() {
+    let popup = document.getElementById("win-popup");
+    popup.classList.add("open-popup");
+}
+
+function losePopup() {
+    let popup = document.getElementById("lose-popup");
+    popup.classList.add("open-popup");
 }
