@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/menu.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Jogo da Memória</title>
 </head>
 
 <body>
@@ -18,30 +19,33 @@
             <img id="logo" src="assets/logo.png" alt="Logo">
         </div>
         <div class="split-window">
-            <h2 id="config-title">Configure um jogo</h2>
-            <div class="menu-wrap">
-                <div class="menu-config">
-                    <h3>Tamanho do Tabuleiro </h3>
-                    <select class="select-label" name="select">
-                        <option value="" disabled selected class="first-option">Selecione o Tamanho</option>
-                        <option value="2x2">2x2</option>
-                        <option value="4x4">4x4</option>
-                        <option value="6x6">6x6</option>
-                        <option value="8x8">8x8</option>
-                    </select>
-
+            <h2 id="config-title">Configure seu jogo</h2>
+            <form name="menu" action="game.html" onsubmit="return getGameAndBoard()">
+                <div class="menu-wrap">
+                    <div class="input-config">
+                        <h3>Tamanho do Tabuleiro </h3>
+                        <select class="select-label" name="board">
+                            <option value="" disabled selected class="first-option">Selecione o Tamanho</option>
+                            <option value="2x2">2x2</option>
+                            <option value="4x4">4x4</option>
+                            <option value="6x6">6x6</option>
+                            <option value="8x8">8x8</option>
+                        </select>
+                        <p id="boardMessage"></p>
+                    </div>
+                    <div class="input-config">
+                        <h3>Tipo de Jogo</h3>
+                        <select class="select-label" name="game">
+                            <option value="first" disabled selected>Selecione o Tipo de Jogo</option>
+                            <option value="contra o tempo">Contra o Tempo</option>
+                            <option value="classico">Clássico</option>
+                        </select>
+                        <p id="gameMessage"></p>
+                    </div>
                 </div>
-                <div class="input-config">
-                    <h3>Tipo de Jogo</h3>
-                    <select class="select-label" name="select">
-                        <option value="first" disabled selected>Selecione o Tipo de Jogo</option>
-                        <option value="contra o tempo">Contra o Tempo</option>
-                        <option value="classico">Clássico</option>
-                    </select>
-                </div>
-            </div>
-            <a class="button" id="play-button" href="game.html">Ir para o jogo</a>
-            <h3>Histórico</h3>
+                <input class="button" id="play-button" type="submit" value="Ir para o jogo">
+            </form>
+            <h3 id="historic">Histórico</h3>
             <div class="history-wrap">
                 <table class="fixed_header">
                     <thead>
@@ -117,10 +121,17 @@
             <div class="button-wrap">
                 <a href="profile.html" class="rounded-button" id="profile"></a>
                 <a href="ranking.html" class="rounded-button" id="trophy"></a>
-                <a href="login.html" class="rounded-button" id="exit"></a>
+                <a class="rounded-button" id="exit" onclick="openPopup()"></a>
+            </div>
+            <div class="popup" id="popup">
+                <p class="text-pop">Opa! Você será desconectado</p>
+                <p class="text-pop">Tem certeza que deseja sair?</p>
+                <a class="button-pop" id="not-quit">Não, voltar para o menu</a>
+                <a class="button-pop" id="quit">Sim, sair e ir para login</a>
             </div>
         </div>
     </div>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>

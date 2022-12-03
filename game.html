@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/game.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <title>Game</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Jogo da Memória</title>
 </head>
 
 <body>
@@ -15,28 +16,70 @@
         <div class="game-window">
             <h2 id="gametitle"><b>Jogo da Memória</b></h2>
             <div class="game-board">
-                <canvas></canvas>
+                <!-- here goes js cards -->
             </div>
             <div class="game-info">
                 <div class="time">
                     <img class="clock" src="assets/clock.png" alt="Clock">
-                    <h3>03:27</h3>
+                    <h3 id="classic-timer">--:--</h3>
                 </div>
                 <div class="time">
                     <img class="clock" src="assets/hourglass.png" alt="Hourglass">
-                    <h3>--:--</h3>
+                    <h3 id="runner-timer">--:--</h3>
                 </div>
                 <h3 class="text">Pontuação</h3>
-                <h3 id="score">48</h3>
+                <h3 id="score">0</h3>
                 <h3 class="text">Trapaça</h3>
                     <div class="cheat">
                         <h3>on </h3>
                         <img id="trapaca" src="assets/onoff.png" alt="Trapaca"> <h3> off</h3>
                     </div>
                 <div class="button-wrap">
-                <a href="menu.html" class="button" id="desistir">Desistir</a>
+                <a class="button" id="desistir" onclick="openPopup()">Desistir</a>
                 </div>
+            </div>
+            <div class="popup" id="load">
+                <div id="load-title">
+                    <p>Instruções</p>
+                    <img id="info" src="assets/information.png" alt="Information">
+                </div>
+                <div class="infos">
+                    <p class="load-text">Relógio:</p>
+                    <p>Conta o tempo da partida.</p>
+                </div>
+                <div class="infos">
+                    <p class="load-text">Ampulheta: (modo Contra o Tempo)</p>
+                    <p>Termine antes do tempo chegar a zero!</p>
+                </div>
+                <div class="infos">
+                    <p class="load-text">Pontuação:</p>
+                    <p>Quantos menos jogadas, menor a pontuação :)</p>
+                </div>
+                <div class="infos">
+                    <p class="load-text">Botão de trapaça:</p>
+                    <p>Permite a visualização de todas as peças ocultas.</p>
+                </div>
+                <a class="button-pop" id="quit-load">Vamos começar!</a>
+            </div>
+            <div class="popup" id="popup">
+                <p class="text-pop">Opa! Você sairá do jogo</p>
+                <p class="text-pop">Tem certeza que deseja sair?</p>
+                <a class="button-pop" id="not-quit">Não, voltar para o jogo</a>
+                <a class="button-pop" id="quit-game">Sim, voltar para o menu</a>
+            </div>
+            <div class="popup" id="win-popup">
+                <p class="text-pop">Parabéns! Você ganhou</p>
+                <p class="text-pop">O que deseja fazer?</p>
+                <a class="button-pop" id="again">Jogar novamente no mesmo modo</a>
+                <a class="button-pop" id="not-again">Sair para o menu</a>
+            </div>
+            <div class="popup" id="lose-popup">
+                <p class="text-pop">Poxa! Você perdeu :(</p>
+                <p class="text-pop">O que deseja fazer?</p>
+                <a class="button-pop" id="lose-again">Jogar novamente no mesmo modo</a>
+                <a class="button-pop" id="lose-not-again">Sair para o menu</a>
             </div>
         </div>
     </div>
+    <script src="js/game.js" defer></script>
 </body>
