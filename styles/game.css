@@ -120,3 +120,42 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+#load {
+    height: 42vh;
+    justify-content: space-evenly;
+    z-index: 1000;
+}
+
+#info {
+    width: 40px;
+    height: 40px;
+}
+
+#load-title {
+    width: 12vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#load-title p {
+    font-size: 3vh;
+    font-weight: 600;
+}
+
+.infos {
+    width: 21vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.load-text {
+    font-weight: 700;
+}
+
+#quit-load {
+    width: 15vw;
+}

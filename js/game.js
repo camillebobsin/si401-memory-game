@@ -273,3 +273,18 @@ function losePopup() {
     let popup = document.getElementById("lose-popup");
     popup.classList.add("open-popup");
 }
+
+window.addEventListener("load", function(){
+    setTimeout(
+        function open(event){
+            let popup = document.getElementById("load");
+            popup.classList.add("open-popup");
+        },
+        700
+    )
+});
+
+document.querySelector("#quit-load").addEventListener("click", function(){
+    let popup = document.getElementById("load");
+    popup.classList.remove("open-popup");
+});
