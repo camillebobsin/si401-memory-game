@@ -24,6 +24,18 @@ const userRegex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g;
 
 const signInMessage = document.getElementById("sign-in");
 
+function getFormData() {
+    return {
+        name: document.forms["sign-in"]["name"].value,
+        date: document.forms["sign-in"]["date"].value,
+        cpf: document.forms["sign-in"]["cpf"].value,
+        phone: document.forms["sign-in"]["phone"].value,
+        email: document.forms["sign-in"]["email"].value,
+        username: document.forms["sign-in"]["username"].value,
+        password: document.forms["sign-in"]["pass1"].value
+    }
+}
+
 function validateSignIn() {
     var name = document.forms["sign-in"]["name"].value;
     var date = document.forms["sign-in"]["date"].value;
@@ -114,24 +126,26 @@ function validateSignIn() {
         }
         signInMessage.style.marginTop = "3vh"
         signInMessage.style.marginBottom = "3vh"
-        return false 
+        return false
     }
 
+    const data = getFormData();
     let url = "http://localhost:8080/sign-in-get-data";
     let options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            'name': name,
-            'date': date,
-            'cpf': cpf,
-            'phone': phone,
-            'email': email,
-            'username': username,
-            'password': pass1
-        })
+        body: JSON.stringify(data)
+        // body: JSON.stringify({
+        //     'name': name,
+        //     'date': date,
+        //     'cpf': cpf,
+        //     'phone': phone,
+        //     'email': email,
+        //     'username': username,
+        //     'password': pass1
+        // })
     }
     fetch(url, options);
 
