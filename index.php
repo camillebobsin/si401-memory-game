@@ -1,7 +1,7 @@
 <?php
 $servername = "127.0.0.1";
-$username = "user";
-$password = "password";
+$db_user = "user";
+$db_pass = "password";
 $dbname = "memorygame";
 $request = $_SERVER['REQUEST_URI'];
 
@@ -35,12 +35,11 @@ switch ($request) {
         echo 'pong';
         break;
     case '/db':
-
-
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=memorygame", $username, $password);
+            $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // TODO: username unique
             $conn->exec("Create table if not exists usuario(
                 codigo int not null auto_increment,
                 username varchar(15) NOT NULL,
@@ -54,10 +53,9 @@ switch ($request) {
         } catch (PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
         }
-
         break;
 
-        // POST routes
+    // POST routes
     case '/sign-in-get-data':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = json_decode(file_get_contents('php://input'), true);
@@ -66,25 +64,43 @@ switch ($request) {
             $cpf = $data["cpf"];
             $phone = $data["phone"];
             $email = $data["email"];
-            $usernamee = $data["username"];
-            $passwordd=  $data["password"];
+            $username = $data["username"];
+            $password=  $data["password"];
             try {
-                $conn = new PDO("mysql:host=$servername;dbname=memorygame", $username, $password);
+                $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $conn->exec("Create table if not exists usuario(
-                    codigo int not null auto_increment,
-                    username varchar(15) NOT NULL,
-                    nome char(15) NOT NULL,
-                    data_nasc date NOT NULL,
-                    cpf varchar(15) NOT NULL,
-                    telefone varchar(30) NOT NULL,
-                    email varchar(30) NOT NULL,
-                    senha varchar(15) NOT NULL,
-                    primary key(codigo))");
 
-                $conn->exec("insert into usuario values(NULL,'$usernamee','$name','2001-01-01','$cpf','$phone','$email','$passwordd')");
+                $conn->exec("insert into usuario values(NULL,'$username','$name','2001-01-01','$cpf','$phone','$email','$password')");
                 //TODO date format from js
+            } catch (PDOException $e) {
+                echo $sql . "<br>" . $e->getMessage();
+            }
+        } else {
+            echo 'Campos vazios';
+        }
+        break;
+
+    case '/validate-login':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $username = $data['username'];
+            $password = $data['password'];
+
+            try {
+                $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $sql = "SELECT username, senha FROM usuario WHERE username = '$username' AND senha = '$password'";
+                $sth = $conn->prepare($sql);
+                $sth->execute([]);
+                $fetch = $sth->fetchAll();
+                $return = sizeof($fetch);
+                if ($return == 1) {
+                    echo json_encode(array('login' => 'true'));
+                } else {
+                    echo json_encode(array('login' => 'false'));
+                }
             } catch (PDOException $e) {
                 echo $sql . "<br>" . $e->getMessage();
             }

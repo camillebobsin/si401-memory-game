@@ -4,6 +4,13 @@ const passwordBox = document.getElementById("password");
 const userMessage = document.getElementById("userMessage");
 const passMessage = document.getElementById("passMessage");
 
+function getFormData() {
+    return {
+        username: document.forms["login"]["username"].value,
+        password: document.forms["login"]["password"].value,
+    }
+}
+
 function validateLogin() {
     var username = document.forms["login"]["username"].value;
     var password = document.forms["login"]["password"].value;
@@ -18,6 +25,14 @@ function validateLogin() {
         }
         return false;
     }
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
+    const data = getFormData();
+    let url = "http://localhost:8080/validade-login";
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(url, options);
 }
