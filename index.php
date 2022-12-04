@@ -96,6 +96,7 @@ switch ($request) {
                 $sth->execute([]);
                 $fetch = $sth->fetchAll();
                 $return = sizeof($fetch);
+                header('Content-Type: application/json; charset=utf-8');
                 if ($return == 1) {
                     echo json_encode(array('login' => 'true'));
                 } else {
@@ -108,4 +109,7 @@ switch ($request) {
             echo 'Campos vazios';
         }
         break;
+    default:
+        header('HTTP/1.0 404 Not Found');
+        echo '';
 }

@@ -26,7 +26,7 @@ function validateLogin() {
         return false;
     }
     const data = getFormData();
-    let url = "http://localhost:8080/validade-login";
+    let url = "http://localhost:8080/validate-login";
     let options = {
         method: 'POST',
         headers: {
@@ -34,5 +34,15 @@ function validateLogin() {
         },
         body: JSON.stringify(data)
     }
-    fetch(url, options);
+    console.log(data);
+    fetch(url, options)
+        .then(response => response.json())
+        .then(response => {
+            if (response.login == 'true') {
+                window.location.replace("menu.html");
+            }
+            else {
+                // TODO retorno visual que deu merda
+            }
+        })
 }
