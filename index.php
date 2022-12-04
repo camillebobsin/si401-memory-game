@@ -55,7 +55,7 @@ switch ($request) {
         }
         break;
 
-    // POST routes
+        // POST routes
     case '/sign-in-get-data':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = json_decode(file_get_contents('php://input'), true);
@@ -65,7 +65,7 @@ switch ($request) {
             $phone = $data["phone"];
             $email = $data["email"];
             $username = $data["username"];
-            $password=  $data["password"];
+            $password =  $data["password"];
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
                 // set the PDO error mode to exception
@@ -91,7 +91,7 @@ switch ($request) {
                 $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT username, senha FROM usuario WHERE username = '$username' AND senha = '$password'";
+                $sql = "SELECT codigo, username, senha FROM usuario WHERE username = '$username' AND senha = '$password'";
                 $sth = $conn->prepare($sql);
                 $sth->execute([]);
                 $fetch = $sth->fetchAll();
@@ -99,6 +99,8 @@ switch ($request) {
                 header('Content-Type: application/json; charset=utf-8');
                 if ($return == 1) {
                     echo json_encode(array('login' => 'true'));
+                    session_start();
+                    $_SESSION["user_id"] = $fetch["codigo"];
                 } else {
                     echo json_encode(array('login' => 'false'));
                 }
@@ -112,4 +114,9 @@ switch ($request) {
     default:
         header('HTTP/1.0 404 Not Found');
         echo '';
+
+    case '/get-session':
+        session_start();
+        echo $_SESSION["user_id"];
+        break;
 }
