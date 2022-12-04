@@ -32,7 +32,7 @@ function validateSignIn() {
     var email = document.forms["sign-in"]["email"].value;
     var username = document.forms["sign-in"]["username"].value;
     var pass1 = document.forms["sign-in"]["pass1"].value;
-    var pass2 = document.forms["sign-in"]["pass2"].value;;
+    var pass2 = document.forms["sign-in"]["pass2"].value;
 
     if (!nameRegex.test(name) || (date.match(/^\s*$/) || []).length > 0 || !cpfRegex.test(cpf) || !phoneRegex.test(phone) || !emailRegex.test(email) || !userRegex.test(username) || pass1 != pass2 || (pass1.match(/^\s*$/) || []).length > 0) {
         if (!nameRegex.test(name) || nameRegex.test(name)) {
@@ -116,4 +116,23 @@ function validateSignIn() {
         signInMessage.style.marginBottom = "3vh"
         return false 
     }
+
+    let url = "http://localhost:8080/sign-in-get-data";
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'name': name,
+            'date': date,
+            'cpf': cpf,
+            'phone': phone,
+            'email': email,
+            'username': username,
+            'password': pass1
+        })
+    }
+    fetch(url, options);
+
 }
