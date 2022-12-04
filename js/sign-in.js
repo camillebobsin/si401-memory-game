@@ -145,5 +145,4 @@ function validateSignIn() {
         // })
     }
     fetch(url, options);
-
 }

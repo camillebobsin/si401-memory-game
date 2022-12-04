@@ -71,7 +71,7 @@ switch ($request) {
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $conn->exec("insert into usuario values(NULL,'$username','$name','2001-01-01','$cpf','$phone','$email','$password')");
+                $conn->exec("insert into usuario values(NULL,'$username','$name','$date','$cpf','$phone','$email','$password')");
                 //TODO date format from js
             } catch (PDOException $e) {
                 echo $sql . "<br>" . $e->getMessage();
