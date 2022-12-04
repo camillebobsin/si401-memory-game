@@ -92,15 +92,13 @@ switch ($request) {
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $sql = "SELECT codigo, username, senha FROM usuario WHERE username = '$username' AND senha = '$password'";
-                $sth = $conn->prepare($sql);
-                $sth->execute([]);
-                $fetch = $sth->fetchAll();
-                $return = sizeof($fetch);
+                foreach ($conn->query($sql) as $row) {
+                    $user_id = $row['codigo'];
+                }
                 header('Content-Type: application/json; charset=utf-8');
-                if ($return == 1) {
+                if ($user_id) {
                     echo json_encode(array('login' => 'true'));
-                    session_start();
-                    $_SESSION["user_id"] = $fetch["codigo"];
+                    setcookie("user_id", $user_id);
                 } else {
                     echo json_encode(array('login' => 'false'));
                 }
@@ -115,8 +113,9 @@ switch ($request) {
         header('HTTP/1.0 404 Not Found');
         echo '';
 
-    case '/get-session':
-        session_start();
-        echo $_SESSION["user_id"];
+    case '/get-cookie':
+        echo json_encode(array('user_id' => $_COOKIE["user_id"]));
         break;
+    case '/signout':
+        $_COOKIE["user_id"] = NULL;
 }
