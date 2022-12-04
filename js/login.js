@@ -4,6 +4,8 @@ const passwordBox = document.getElementById("password");
 const userMessage = document.getElementById("userMessage");
 const passMessage = document.getElementById("passMessage");
 
+let notFound = document.getElementById("not-found");
+
 function getFormData() {
     return {
         username: document.forms["login"]["username"].value,
@@ -42,7 +44,8 @@ function validateLogin() {
                 window.location.replace("menu.html");
             }
             else {
-                // TODO retorno visual que deu merda
+                notFound.innerHTML = "Cadastro não encontrado";
             }
         })
+        return false;
 }
