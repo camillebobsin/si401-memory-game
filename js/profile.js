@@ -1,3 +1,17 @@
+function getData() {
+    let url = "http://localhost:8080/get-cookie";
+    let options = {
+        method: 'GET'
+    }
+    fetch(url, options)
+        .then(response => response.json())
+        .then(response => {
+            document.getElementById("user").innerHTML = response["user_id"]
+        })
+}
+
+getData();
+
 document.getElementById("sheep").addEventListener("click", closePopup);
 document.getElementById("bird").addEventListener("click", closePopup);
 document.getElementById("otter").addEventListener("click", closePopup);
