@@ -146,13 +146,31 @@ switch ($request) {
         $user_id = $_COOKIE["user_id"];
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $sql = "select username, tabuleiro, jogo, duracao, resultado, data, hora from resultado r inner join usuario u where u.codigo = '$user_id'";
+            $sql = "select username, tabuleiro, jogo, duracao, resultado, data, hora from resultado r inner join usuario u where u.codigo = '$user_id' order by cod_resultado desc";
             $outter_json = "[\n";
             foreach ($conn->query($sql) as $row) {
-                $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'hora/data' => $row['hora'] . ' ' . $row['data']));
+                $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'horadata' => $row['hora'] . ' ' . $row['data']));
                 $outter_json = $outter_json . $inner_json . ",\n";
             }
             $outter_json = $outter_json . "]";
             echo $outter_json;
+        } else {
+            echo 'Não há dados';
         }
+        break;
+
+    case '/get-ranking':
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $sql = "select username, tabuleiro, jogo, duracao, resultado, pontos from resultado inner join usuario where cod_usuario = codigo order by tabuleiro desc, resultado desc, pontos, duracao limit 10";
+            $outter_json = "[\n";
+            foreach($conn->query($sql) as $row) {
+                $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'pontos' => $row['pontos']));
+                $outter_json = $outter_json . $inner_json . ",\n";
+            }
+            $outter_json = $outter_json . "]";
+            echo $outter_json;
+        } else {
+            echo 'Não há dados';
+        }
+        break;
 }
