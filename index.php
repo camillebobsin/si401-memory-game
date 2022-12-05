@@ -4,11 +4,41 @@ $db_user = "user";
 $db_pass = "password";
 $dbname = "memorygame";
 $request = $_SERVER['REQUEST_URI'];
+$conn = new PDO("mysql:host=$servername;dbname=$dbname", $db_user, $db_pass);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 switch ($request) {
         // GET routes return html
     case '/':
         require __DIR__ . '/login.html';
+        try {
+            $conn->exec("Create table if not exists usuario(
+                codigo int not null auto_increment,
+                foto int default 0,
+                username varchar(30) NOT NULL,
+                nome char(60) NOT NULL,
+                data_nasc date NOT NULL,
+                cpf varchar(15) NOT NULL,
+                telefone varchar(30) NOT NULL,
+                email varchar(30) NOT NULL,
+                senha varchar(30) NOT NULL,
+                primary key(codigo),
+                unique(username));
+                ");
+            $conn->exec("Create table if not exists resultado(
+                cod_resultado int not null auto_increment,
+                tabuleiro varchar(10) not null,
+                duracao varchar(15) not null,
+                jogo char(20) not null,
+                hora time not null,
+                pontos int not null,
+                resultado char(15) not null,
+                cod_usuario int not null,
+                primary key(cod_resultado),
+                foreign key(cod_usuario) references usuario(codigo));");
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
         break;
     case '':
         require __DIR__ . '/login.html';
@@ -34,26 +64,6 @@ switch ($request) {
     case '/ping':
         echo 'pong';
         break;
-    case '/db':
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // TODO: username unique
-            $conn->exec("Create table if not exists usuario(
-                codigo int not null auto_increment,
-                username varchar(15) NOT NULL,
-                nome char(15) NOT NULL,
-                data_nasc date NOT NULL,
-                cpf varchar(15) NOT NULL,
-                telefone varchar(30) NOT NULL,
-                email varchar(30) NOT NULL,
-                senha varchar(15) NOT NULL,
-                primary key(codigo))");
-        } catch (PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
-        }
-        break;
 
         // POST routes
     case '/sign-in-get-data':
@@ -67,12 +77,7 @@ switch ($request) {
             $username = $data["username"];
             $password =  $data["password"];
             try {
-                $conn = new PDO("mysql:host=$servername;dbname=memorygame", $db_user, $db_pass);
-                // set the PDO error mode to exception
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                $conn->exec("insert into usuario values(NULL,'$username','$name','$date','$cpf','$phone','$email','$password')");
-                //TODO date format from js
+                $conn->exec("insert into usuario values(NULL,0,'$username','$name','$date','$cpf','$phone','$email','$password')");
             } catch (PDOException $e) {
                 echo $sql . "<br>" . $e->getMessage();
             }
