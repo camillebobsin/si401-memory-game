@@ -134,15 +134,6 @@ function validateSignIn() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-        // body: JSON.stringify({
-        //     'name': name,
-        //     'date': date,
-        //     'cpf': cpf,
-        //     'phone': phone,
-        //     'email': email,
-        //     'username': username,
-        //     'password': pass1
-        // })
     }
     fetch(url, options);
 }
