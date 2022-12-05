@@ -29,12 +29,24 @@ function getFormData() {
     }
 }
 
+function sendData(data) {
+    let url = "http://localhost:8080/push-results";
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(url, options);
+}
+
 function getDurationTime(minutes, seconds) {
     if ((aux - 1 - minutes) == 0) {
         return `${59 - seconds}s`;
     }
     else {
-        return `${aux - 1 - minutes}min${59 - seconds}s`;
+        return `${aux - 1 - minutes}min ${59 - seconds}s`;
     }
 }
 
@@ -42,7 +54,7 @@ function getCurentHour(){
     const d = new Date();
     let hour = d.getHours();
     let min = d.getMinutes();
-    return `${hour}H${min}min`;
+    return `${hour}:${min}`;
 }
 
 function checkFlag() {
@@ -213,11 +225,12 @@ function classicTimer() {
         if (checkWin()) {
             winPopup();
             const data = getFormData();
-            data['durationTime'] = getDurationTime(minutes, seconds);
+            data['durationTime'] = minutes == 0 ? `${seconds}s` : `${minutes}min ${seconds}s`;
             data['result'] = "Vitoria";
             data['points'] = click;
             data['date'] = new Date().toJSON().slice(0, 10);
             data['hour'] = getCurentHour();
+            sendData(data);
             stopFunc = true;
         } else {
             seconds += 1;
@@ -240,7 +253,8 @@ function runnerTimer() {
             data['points'] = click;
             data['date'] = new Date().toJSON().slice(0, 10);
             data['hour'] = getCurentHour();
-            console.log(data);
+            console.log(data)
+            sendData(data);
             stopFunc = true;
         }
         else if (minutes == 0 && seconds === 0) {
@@ -251,6 +265,7 @@ function runnerTimer() {
             data['points'] = click;
             data['date'] = new Date().toJSON().slice(0, 10);
             data['hour'] = getCurentHour();
+            sendData(data);
             stopFunc = true;
         }
         else {
