@@ -141,4 +141,18 @@ switch ($request) {
             echo 'Campos vazios';
         }
         break;
+
+    case '/get-user-historic':
+        $user_id = $_COOKIE["user_id"];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $sql = "select username, tabuleiro, jogo, duracao, resultado, data, hora from resultado r inner join usuario u where u.codigo = '$user_id'";
+            $outter_json = "[\n";
+            foreach ($conn->query($sql) as $row) {
+                $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'hora/data' => $row['hora'] . ' ' . $row['data']));
+                $outter_json = $outter_json . $inner_json . ",\n";
+            }
+            $outter_json = $outter_json . "]";
+            echo $outter_json;
+        }
 }
