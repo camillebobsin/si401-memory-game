@@ -146,7 +146,7 @@ switch ($request) {
         $user_id = $_COOKIE["user_id"];
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $sql = "select username, tabuleiro, jogo, duracao, resultado, data, hora from resultado r inner join usuario u where u.codigo = '$user_id' order by cod_resultado desc";
+            $sql = "select username, tabuleiro, jogo, duracao, resultado, data, hora from resultado r inner join usuario u on u.codigo = '$user_id' and u.codigo = r.cod_usuario order by cod_resultado desc";
             $outter_json = "[\n";
             foreach ($conn->query($sql) as $row) {
                 $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'horadata' => $row['hora'] . ' ' . $row['data']));
@@ -161,7 +161,7 @@ switch ($request) {
 
     case '/get-ranking':
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $sql = "select username, tabuleiro, jogo, duracao, resultado, pontos from resultado inner join usuario where cod_usuario = codigo order by tabuleiro desc, resultado desc, pontos, duracao limit 10";
+            $sql = "select username, tabuleiro, jogo, duracao, resultado, pontos from resultado inner join usuario on cod_usuario = codigo order by tabuleiro desc, resultado desc, pontos, duracao limit 10";
             $outter_json = "[\n";
             foreach($conn->query($sql) as $row) {
                 $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'pontos' => $row['pontos']));
