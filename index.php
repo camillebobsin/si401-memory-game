@@ -173,4 +173,39 @@ switch ($request) {
             echo 'Não há dados';
         }
         break;
+
+    case '/get-profile-data':
+        $user_id = $_COOKIE["user_id"];
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $sql = "select codigo,foto,nome,data_nasc,cpf,telefone,email,username,senha from usuario where codigo = '$user_id';";
+            foreach($conn->query($sql) as $row){
+                $json = json_encode(array('codigo' => $row['codigo'], 'foto' => $row['foto'], 'nome' => $row['nome'], 'data_nasc' => $row['data_nasc'], 'cpf' => $row['cpf'], 'telefone' => $row['telefone'], 'email' => $row['email'], 'username' => $row['username'], 'senha' => $row['senha']));
+            }
+            echo $json;
+        }else{
+            echo "Não há dados";
+        }
+        break;
+
+    case '/edit-profile':
+        $user_id = $_COOKIE["user_id"];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $foto = $data['photo'];
+            $nome = $data['name'];
+            $telefone = $data['phone'];
+            $email = $data['email'];
+            $senha = $data['password'];
+
+            try {
+                $conn->exec("update usuario
+                set nome = '$nome',foto = '$foto', telefone = '$telefone', email = '$email', senha = '$senha' 
+                where codigo = '$user_id';");
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }else{
+            echo 'Não há dados';
+        }
+        break;
 }
