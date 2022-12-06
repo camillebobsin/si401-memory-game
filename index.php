@@ -161,7 +161,7 @@ switch ($request) {
 
     case '/get-ranking':
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $sql = "select username, tabuleiro, jogo, duracao, resultado, pontos from resultado inner join usuario on cod_usuario = codigo order by tabuleiro desc, resultado desc, pontos, duracao limit 10";
+            $sql = "select username, tabuleiro, jogo, duracao, resultado, pontos from resultado inner join usuario on cod_usuario = codigo and resultado = 'Vitoria' order by tabuleiro desc, pontos, duracao limit 10";
             $outter_json = "[\n";
             foreach($conn->query($sql) as $row) {
                 $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'pontos' => $row['pontos']));
@@ -191,11 +191,11 @@ switch ($request) {
         $user_id = $_COOKIE["user_id"];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = json_decode(file_get_contents('php://input'), true);
-            $foto = $data['photo'];
-            $nome = $data['name'];
-            $telefone = $data['phone'];
+            $foto = $data['foto'];
+            $nome = $data['nome'];
+            $telefone = $data['telefone'];
             $email = $data['email'];
-            $senha = $data['password'];
+            $senha = $data['senha'];
 
             try {
                 $conn->exec("update usuario
