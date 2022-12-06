@@ -1,12 +1,19 @@
 function getData() {
-    let url = "http://localhost:8080/get-cookie";
+    let url = "http://localhost:8080/get-profile-data";
     let options = {
         method: 'GET'
     }
     fetch(url, options)
         .then(response => response.json())
-        .then(response => {
-            document.getElementById("user").innerHTML = response["user_id"]
+        .then(data => {
+            document.getElementsByName('name')[0].placeholder = data['nome'];
+            document.getElementsByName('phone')[0].placeholder = data['telefone'];
+            document.getElementsByName('email')[0].placeholder = data['email'];
+            document.getElementById("user").innerHTML = data['username'];
+            document.getElementById("date").innerHTML = data['data_nasc'];
+            document.getElementById("cpf").innerHTML = data['cpf'];
+            document.getElementById("act").style.backgroundImage = "url('assets/cards/card_" + data['foto'] + ".jpg')";
+            index = data['foto'];
         })
 }
 
@@ -27,15 +34,15 @@ let index = 0;
 function closePopup() {
     let popup = document.getElementById("popup");
     popup.classList.remove("open-popup");
-    if(this.id == "sheep") 
+    if (this.id == "sheep")
         index = 0;
-    if(this.id == "bird") 
+    if (this.id == "bird")
         index = 23;
-    if(this.id == "otter") 
+    if (this.id == "otter")
         index = 14;
-    if(this.id == "tiger") 
+    if (this.id == "tiger")
         index = 10;
-    if(this.id == "panda") 
+    if (this.id == "panda")
         index = 20;
     document.getElementById("act").style.backgroundImage = "url('assets/cards/card_" + index + ".jpg')"
 }
@@ -45,10 +52,37 @@ act.addEventListener("mouseover", hoverOn);
 act.addEventListener('mouseout', hoverOff);
 
 function hoverOn() {
-    console.log(index)
     act.style.backgroundImage = "url('../assets/pencil-icon.png')";
 }
 
 function hoverOff() {
     act.style.backgroundImage = "url('assets/cards/card_" + index + ".jpg')";
+}
+
+function editProfile() {
+    let url = "http://localhost:8080/get-profile-data";
+    let options = {
+        method: 'GET'
+    }
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            data['nome'] = document.forms["profile"]["name"].value == '' ? data['nome'] : document.forms["profile"]["name"].value;
+            data['telefone'] = document.forms["profile"]["phone"].value == '' ? data['telefone'] : document.forms["profile"]["phone"].value;
+            data['email'] = document.forms["profile"]["email"].value == '' ? data['email'] : document.forms["profile"]["email"].value;
+            data['senha'] = document.forms["profile"]["pass"].value == '' ? data['senha'] : document.forms["profile"]["pass"].value;
+            data['foto'] = index;
+        
+            url = "http://localhost:8080/edit-profile";
+            options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+            fetch(url, options);
+            document.getElementById("done").innerHTML = "Alterações realizadas com sucesso!";
+        })
+    return false
 }

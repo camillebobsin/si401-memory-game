@@ -34,44 +34,49 @@
                 </div>
                 <div>
                     <p>Username</p>
-                    <div id="user_fill">
-                        <p id="user">turbo4037</p>
+                    <div class="user_fill">
+                        <p id="user"></p>
                     </div>
                 </div>
             </div>
 
-            <form>
+            <form name="profile" onsubmit="return editProfile()">
                 <div class="label">
                     <p>Nome completo:</p>
-                    <input type="text" placeholder="Nome Completo">
+                    <input type="text" placeholder="Nome Completo" class="input" name="name">
                 </div>
                 <div class="wrap-input">
                     <div class="wrap-label">
                         <p>Data de nascimento:</p>
-                        <input type="date" min="1920-09-16" max="2020-09-16">
+                        <div class="user_fill">
+                            <p id="date"></p>
+                        </div>
                     </div>
                     <div class="wrap-label">
                         <p>CPF:</p>
-                        <input type="text" placeholder="XXX.XXX.XXX-XX">
+                        <div class="user_fill">
+                            <p id="cpf"></p>
+                        </div>
                     </div>
                 </div>
                 <div class="label">
                     <p>Telefone:</p>
-                    <input type="text" placeholder="(XX)XXXXX-XXXX">
+                    <input type="text" placeholder="(XX)XXXXX-XXXX" class="input" name="phone">
                 </div>
                 <div class="label">
                     <p>Email:</p>
-                    <input type="email" placeholder="email">
+                    <input type="email" placeholder="email" class="input" name="email">
                 </div>
                 <div class="label">
                     <p>Senha:</p>
-                    <input id="input_password" type="password" placeholder="senha">
+                    <input id="input_password" type="password" placeholder="Digite sua nova senha" class="input" name="pass">
                 </div>
+                <footer>
+                    <a class="rounded-button" id="back" href="menu.html"></a>
+                    <input type="submit" value="Salvar Alterações" class="button" id="save">
+                </footer>
             </form>
-            <footer>
-                <a class="rounded-button" id="back" href="menu.html"></a>
-                <a class="button" id="save" href="profile.html">Salvar Alterações</a>
-            </footer>
+            <p id="done"></p>
         </div>
     </div>
     <script src="js/profile.js"></script>
