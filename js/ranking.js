@@ -25,6 +25,7 @@ function getData() {
             let pontos = document.createElement("p");
             pontos.innerHTML = data[0]["pontos"];
             fp.appendChild(pontos);
+            document.getElementById("first-photo").style.backgroundImage = "url('assets/cards/card_" + data[0]["foto"] + ".jpg')";
 
             let sp = document.getElementById("second-player");
             username = document.createElement("p");
@@ -45,6 +46,7 @@ function getData() {
             pontos = document.createElement("p");
             pontos.innerHTML = data[1]["pontos"];
             sp.appendChild(pontos);
+            document.getElementById("second-photo").style.backgroundImage = "url('assets/cards/card_" + data[1]["foto"] + ".jpg')";
 
             let tp = document.getElementById("third-player");
             username = document.createElement("p");
@@ -65,6 +67,7 @@ function getData() {
             pontos = document.createElement("p");
             pontos.innerHTML = data[2]["pontos"];
             tp.appendChild(pontos);
+            document.getElementById("third-photo").style.backgroundImage = "url('assets/cards/card_" + data[2]["foto"] + ".jpg')";
 
             let table = document.getElementById("ranking-table");
             for (let i = 3; i < 10; i++) {
@@ -74,9 +77,11 @@ function getData() {
                     td.innerHTML = `#${i+1}`;
                     tr.appendChild(td);
                 for (let key in json) {
-                    let td = document.createElement("td");
-                    td.innerHTML = json[key];
-                    tr.appendChild(td);
+                    if (key != "foto") {
+                        let td = document.createElement("td");
+                        td.innerHTML = json[key];
+                        tr.appendChild(td);
+                    }
                 }
                 table.appendChild(tr);
             }

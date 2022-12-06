@@ -1,12 +1,17 @@
 @import url(styles.css);
 
+h2 {
+  margin-bottom: 1vh;
+  font-size: 5vh;
+}
+
 #podium {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-    width: 40vw;
-    height: 40vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  width: 40vw;
+  height: 40vh;
 }
 
 .podium-winners {
@@ -37,9 +42,10 @@
   border-radius: 50%;
   background-color: #EAEBED;
   background-image: url('../assets/cachorro.jpg');
+  background-position: 50% 50%;
   z-index: 0;
   background-size: cover;
-  border: 2px solid #DDEBE9 ;
+  border: 2px solid #DDEBE9;
 }
 
 .data-wrapper {
@@ -73,62 +79,69 @@
   align-items: center;
 }
 
-#history-wrap{
-    background-color: #eaebed;
-    border: solid black;
-    border-radius: 1.2vh;
-    border-width: 0.3vh;
-    margin-bottom: 3vh;
-    margin-top: 2vh;
+#second-player {
+  margin-top: 2vh;
 }
 
-#fixed_header{
-    width: 40vw;
-    table-layout: fixed;
-    border-collapse: collapse;
+#third-player {
+  margin-top: 3.2vh;
 }
 
-#fixed_header tbody{
-  display: block;
+#history-wrap {
+  background-color: #eaebed;
+  border: solid black;
+  border-radius: 1.2vh;
+  border-width: 0.3vh;
+  margin-bottom: 3vh;
+  margin-top: 2vh;
+}
+
+table {
   width: 40vw;
-  overflow: auto;
-  height: 30vh;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
 }
 
-#fixed_header thead tr {
-   display: block;
+tbody {
+  margin-bottom: 2vh;
 }
 
-#fixed_header thead {
-    color:#077364;
-    text-align: center;
-    filter: drop-shadow(0.05rem 0.2rem 0.1rem rgb(190, 187, 187));
-    font-weight: 600;
+thead {
+  color: #077364;
+  margin-top: 2vh;
+  filter: drop-shadow(0.05rem 0.2rem 0.1rem rgb(190, 187, 187));
+  font-weight: 600;
 }
 
-
-#fixed_header th, #fixed_header td {
+th, td {
   text-align: center;
-  width: 15vh;
+  width: 15vw;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40vw;
 }
 
 #back {
-    background-image: url('../assets/back.png');
+  background-image: url('../assets/back.png');
 }
 
 ::-webkit-scrollbar {
-    width: 9px;
-  }
-  
-  
+  width: 9px;
+}
+
+
 ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
- 
+  background: transparent;
+}
+
+
 ::-webkit-scrollbar-thumb {
-    background: #EAEBED;
-    border: solid black;
-    border-width: thin;
-    border-radius: 1.5vh;
-  }
+  background: #EAEBED;
+  border: solid black;
+  border-width: thin;
+  border-radius: 1.5vh;
+}
