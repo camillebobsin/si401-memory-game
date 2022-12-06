@@ -1,6 +1,6 @@
 @import url(styles.css);
 
-input {
+.input {
     height: 5.5vh;
     width: 25vw;
     padding-left: 15px;
@@ -31,8 +31,8 @@ input {
     margin-top: 4px;
 }
 
-.wrap-label input {
-    width: 11.6vw;
+.wrap-label div {
+    width: 12.3vw;
 }
 
 h2 {
@@ -58,7 +58,7 @@ footer {
     justify-content: space-evenly;
 }
 
-#user_fill{
+.user_fill{
     background:#EAEBED;
     width: 18vw;
     height: 5.5vh;
@@ -67,6 +67,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.user_fill p {
+    margin-left: 0.8vw;
 }
 
 #user {
@@ -179,4 +183,10 @@ footer {
 footer{
     width: 25vw;
     margin-top: 3vh;
+}
+
+#done {
+    margin-top: 2vh;
+    color: darkslategray;
+    font-size: 2vh;
 }

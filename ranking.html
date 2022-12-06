@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/ranking.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <title>Ranking Global</title>
 </head>
 
@@ -21,38 +22,29 @@
             <h2>Ranking Global</h2>
             <div id="podium">
                 <div id="second" class="podium-winners">
-                    <div class="icon"></div>
+                    <div class="icon" id="second-photo"></div>
                     <div class="data-wrapper" id="second-data">
-                        <div class="data">
-                            <p>Marcola</p>
-                            <p>Contra o Tempo</p>
-                            <p>46s</p>
-                            <p>Vitória</p>
-                            <p>88</p>
+                        <div class="data" id="second-player">
+                            <p>#2</p>
+                            <!-- ajax query goes here -->
                         </div>
                     </div>
                 </div>
                 <div id="first" class="podium-winners">
-                    <div class="icon"></div>
+                    <div class="icon" id="first-photo"></div>
                     <div class="data-wrapper" id="first-data">
-                        <div class="data">
-                            <p>JorgeYudi</p>
-                            <p>Contra o Tempo</p>
-                            <p>46s</p>
-                            <p>Vitória</p>
-                            <p>88</p>
+                        <div class="data" id="first-player">
+                            <p>#1</p>
+                            <!-- ajax query goes here -->
                         </div>
                     </div>
                 </div>
                 <div id="third" class="podium-winners">
-                    <div class="icon"></div>
+                    <div class="icon" id="third-photo"></div>
                     <div class="data-wrapper" id="third-data">
-                        <div class="data">
-                            <p>JoaoRodrigo</p>
-                            <p>Contra o Tempo</p>
-                            <p>46s</p>
-                            <p>Vitória</p>
-                            <p>88</p>
+                        <div class="data" id="third-player">
+                            <p>#3</p>
+                            <!-- ajax query goes here -->
                         </div>
                     </div>
                 </div>
@@ -62,7 +54,7 @@
                     <thead>
                         <tr>
                             <th>Posição</th>
-                            <th>Nickname</th>
+                            <th>Username</th>
                             <th>Tabuleiro</th>
                             <th>Modo</th>
                             <th>Tempo</th>
@@ -70,76 +62,15 @@
                             <th>Pontos</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>#4</td>
-                            <td>Pata de bode</td>
-                            <td>8x8</td>
-                            <td>Contra o Tempo</td>
-                            <td>51s</td>
-                            <td>Vitória</td>
-                            <td>98</td>
-                        </tr>
-                        <tr>
-                            <td>#5</td>
-                            <td>Pata de bode</td>
-                            <td>8x8</td>
-                            <td>Contra o Tempo</td>
-                            <td>122s</td>
-                            <td>Vitória</td>
-                            <td>102</td>
-                        </tr>
-                        <tr>
-                            <td>#6</td>
-                            <td>Pata de bode</td>
-                            <td>6x6</td>
-                            <td>Contra o Tempo</td>
-                            <td>22s</td>
-                            <td>Vitória</td>
-                            <td>48</td>
-                        </tr>
-                        <tr>
-                            <td>#7</td>
-                            <td>Pata de bode</td>
-                            <td>6x6</td>
-                            <td>Contra o Tempo</td>
-                            <td>30s</td>
-                            <td>Vitória</td>
-                            <td>60</td>
-                        </tr>
-                        <tr>
-                            <td>#8</td>
-                            <td>Pata de bode</td>
-                            <td>2x2</td>
-                            <td>Contra o Tempo</td>
-                            <td>12s</td>
-                            <td>Vitória</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>#9</td>
-                            <td>Pata de bode</td>
-                            <td>8x8</td>
-                            <td>Contra o Tempo</td>
-                            <td>---</td>
-                            <td>Derrota</td>
-                            <td>202</td>
-                        </tr>
-                        <tr>
-                            <td>#10</td>
-                            <td>Pata de bode</td>
-                            <td>4x4</td>
-                            <td>Contra o Tempo</td>
-                            <td>---</td>
-                            <td>Derrota</td>
-                            <td>164</td>
-                        </tr>
+                    <tbody id="ranking-table">
+                        <!-- ajax query goes here -->
                     </tbody>
                 </table>
             </div>
             <a href="menu.html" class="rounded-button" id="back"></a>
         </div>
     </div>
+    <script src="js/ranking.js"></script>
 </body>
 
 </html>

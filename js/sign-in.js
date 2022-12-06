@@ -16,13 +16,22 @@ const userMessage = document.getElementById("userMessage");
 const pass1Message = document.getElementById("pass1Message");
 const pass2Message = document.getElementById("pass2Message");
 
-const nameRegex = /^([a-zA-Zà-úÀ-Ú]{2,})+\s+([a-zA-Zà-úÀ-Ú\s]{2,})+$/;
-const cpfRegex = /^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/;
-const phoneRegex = /^[\(]([0-9]){2}[\)]([0-9]){4,5}-([0-9]){4}$/;
+const notEmpty = /^\s*$/;
 const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const userRegex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g;
 
 const signInMessage = document.getElementById("sign-in");
+
+function getFormData() {
+    return {
+        name: document.forms["sign-in"]["name"].value,
+        date: document.forms["sign-in"]["date"].value,
+        cpf: document.forms["sign-in"]["cpf"].value,
+        phone: document.forms["sign-in"]["phone"].value,
+        email: document.forms["sign-in"]["email"].value,
+        username: document.forms["sign-in"]["username"].value,
+        password: document.forms["sign-in"]["pass1"].value
+    }
+}
 
 function validateSignIn() {
     var name = document.forms["sign-in"]["name"].value;
@@ -34,19 +43,19 @@ function validateSignIn() {
     var pass1 = document.forms["sign-in"]["pass1"].value;
     var pass2 = document.forms["sign-in"]["pass2"].value;;
 
-    if (!nameRegex.test(name) || (date.match(/^\s*$/) || []).length > 0 || !cpfRegex.test(cpf) || !phoneRegex.test(phone) || !emailRegex.test(email) || !userRegex.test(username) || pass1 != pass2 || (pass1.match(/^\s*$/) || []).length > 0) {
-        if (!nameRegex.test(name) || nameRegex.test(name)) {
-            if (nameRegex.test(name)) {
+    if (notEmpty.test(name) || date.match(notEmpty) || notEmpty.test(cpf) || notEmpty.test(phone) || !emailRegex.test(email) || notEmpty.test(username) || pass1 != pass2 || pass1.match(notEmpty)) {
+        if (!notEmpty.test(name) || notEmpty.test(name)) {
+            if (!notEmpty.test(name)) {
                 nameBox.style.border = "2px solid #077364";
                 nameMessage.innerHTML = "";
             }
             else {
                 nameBox.style.border = "2px solid red";
-                nameMessage.innerHTML = "Insira o nome completo";
+                nameMessage.innerHTML = "Insira um nome";
             }
         }
-        if ((date.match(/^\s*$/) || []).length > 0 || (date.match(/^\s*$/) || []).length <= 0) {
-            if ((date.match(/^\s*$/) || []).length <= 0) {
+        if (date.match(notEmpty) || !date.match(notEmpty)) {
+            if (!date.match(notEmpty)) {
                 dateBox.style.border = "2px solid #077364";
                 dateMessage.innerHTML = "";
             }
@@ -55,24 +64,24 @@ function validateSignIn() {
                 dateMessage.innerHTML = "Insira uma data";
             }
         }
-        if (!cpfRegex.test(cpf) || cpfRegex.test(cpf)) {
-            if (cpfRegex.test(cpf)) {
+        if (notEmpty.test(cpf) || !notEmpty.test(cpf)) {
+            if (!notEmpty.test(cpf)) {
                 cpfBox.style.border = "2px solid #077364";
                 cpfMessage.innerHTML = "";
             }
             else {
                 cpfBox.style.border = "2px solid red";
-                cpfMessage.innerHTML = "Não está no padrão xxx.xxx.xxx-xx";
+                cpfMessage.innerHTML = "Insira um CPF";
             }
         }
-        if (!phoneRegex.test(phone) || phoneRegex.test(phone)) {
-            if (phoneRegex.test(phone)) {
+        if (!notEmpty.test(phone) || notEmpty.test(phone)) {
+            if (!notEmpty.test(phone)) {
                 phoneBox.style.border = "2px solid #077364";
                 phoneMessage.innerHTML = "";
             }
             else {
                 phoneBox.style.border = "2px solid red";
-                phoneMessage.innerHTML = "Não está no padrão (xx)xxxxx-xxxx";
+                phoneMessage.innerHTML = "Insira um telefone";
             }
         }
         if (!emailRegex.test(email) || emailRegex.test(email)) {
@@ -85,8 +94,8 @@ function validateSignIn() {
                 emailMessage.innerHTML = "Insira um email válido";
             }
         }
-        if (!userRegex.test(username) || userRegex.test(username)) {
-            if (userRegex.test(username)) {
+        if (!notEmpty.test(username) || notEmpty.test(username)) {
+            if (!notEmpty.test(username)) {
                 usernameBox.style.border = "2px solid #077364";
                 userMessage.innerHTML = "";
             }
@@ -107,13 +116,24 @@ function validateSignIn() {
                 passMessage.innerHTML = "As senhas não são iguais";
             }
         }
-        if ((pass1.match(/^\s*$/) || []).length > 0) {
+        if (pass1.match(notEmpty)) {
             pass1Box.style.border = "2px solid red";
             pass2Box.style.border = "2px solid red";
             passMessage.innerHTML = "Insira uma senha";
         }
         signInMessage.style.marginTop = "3vh"
         signInMessage.style.marginBottom = "3vh"
-        return false 
+        return false
     }
+
+    const data = getFormData();
+    let url = "http://localhost:8080/sign-in-get-data";
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(url, options);
 }

@@ -57,7 +57,13 @@ form {
     justify-content: center;
 }
 
-#userMessage, #passMessage {
+#userMessage, #passMessage, #not-found {
     color: red;
     font-size: 1.5vh;
+}
+
+#not-found {
+    align-self: center;
+    margin-top: 2vh;
+    font-size: 1.7vh;
 }
