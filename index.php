@@ -152,7 +152,7 @@ switch ($request) {
                 $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'horadata' => $row['hora'] . ' ' . $row['data']));
                 $outter_json = $outter_json . $inner_json . ",\n";
             }
-            $outter_json = $outter_json . "]";
+            $outter_json = substr($outter_json, 0, -2) . "\n]";
             echo $outter_json;
         } else {
             echo 'Não há dados';
@@ -167,7 +167,7 @@ switch ($request) {
                 $inner_json = json_encode(array('username' => $row['username'], 'tabuleiro' => $row['tabuleiro'], 'jogo' => $row['jogo'], 'duracao' => $row['duracao'], 'resultado' => $row['resultado'], 'pontos' => $row['pontos']));
                 $outter_json = $outter_json . $inner_json . ",\n";
             }
-            $outter_json = $outter_json . "]";
+            $outter_json = substr($outter_json, 0, -2) . "\n]";
             echo $outter_json;
         } else {
             echo 'Não há dados';
