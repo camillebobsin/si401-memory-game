@@ -1,3 +1,27 @@
+function getData() {
+    let url = "http://localhost:8080/get-user-historic";
+    let options = {
+        method: 'GET'
+    }
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            let table = document.getElementById("user-historic");
+            for (let game in data) {
+                let json = data[game];
+                let tr = document.createElement("tr");
+                for (let key in json) {
+                    let td = document.createElement("td");
+                    td.innerHTML = json[key];
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+        })
+}
+
+getData();
+
 let boardBox = document.forms["menu"]["board"];
 let gameBox = document.forms["menu"]["game"];
 
@@ -51,5 +75,10 @@ function closePopup() {
 }
 
 function quitAccount() {
+    let url = "http://localhost:8080/signout";
+    let options = {
+        method: 'GET'
+    }
+    fetch(url, options)
     window.location.replace("login.html");
 }
