@@ -1,5 +1,5 @@
 function getData() {
-    let url = "http://localhost:8080/get-profile-data";
+    let url = "routes/get-profile-data.php";
     let options = {
         method: 'GET'
     }
@@ -60,7 +60,7 @@ function hoverOff() {
 }
 
 function editProfile() {
-    let url = "http://localhost:8080/get-profile-data";
+    let url = "routes/get-profile-data.php";
     let options = {
         method: 'GET'
     }
@@ -73,7 +73,7 @@ function editProfile() {
             data['senha'] = document.forms["profile"]["pass"].value == '' ? data['senha'] : document.forms["profile"]["pass"].value;
             data['foto'] = index;
         
-            url = "http://localhost:8080/edit-profile";
+            url = "routes/edit-profile.php";
             options = {
                 method: 'POST',
                 headers: {

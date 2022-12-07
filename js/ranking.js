@@ -1,5 +1,5 @@
 function getData() {
-    let url = "http://localhost:8080/get-ranking";
+    let url = "routes/get-ranking.php";
     let options = {
         method: 'GET'
     }

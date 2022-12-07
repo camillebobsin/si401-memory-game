@@ -127,7 +127,7 @@ function validateSignIn() {
     }
 
     const data = getFormData();
-    let url = "http://localhost:8080/sign-in-get-data";
+    let url = "routes/sign-in-get-data.php";
     let options = {
         method: 'POST',
         headers: {

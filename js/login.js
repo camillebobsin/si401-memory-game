@@ -28,7 +28,7 @@ function validateLogin() {
         return false;
     }
     const data = getFormData();
-    let url = "http://localhost:8080/validate-login";
+    let url = "routes/validate-login.php";
     let options = {
         method: 'POST',
         headers: {

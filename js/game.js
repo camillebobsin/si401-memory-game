@@ -30,7 +30,7 @@ function getFormData() {
 }
 
 function sendData(data) {
-    let url = "http://localhost:8080/push-results";
+    let url = "routes/push-results.php";
     let options = {
         method: 'POST',
         headers: {

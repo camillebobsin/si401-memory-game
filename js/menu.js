@@ -1,5 +1,5 @@
 function getData() {
-    let url = "http://localhost:8080/get-user-historic";
+    let url = "routes/get-user-historic.php";
     let options = {
         method: 'GET'
     }
@@ -75,7 +75,7 @@ function closePopup() {
 }
 
 function quitAccount() {
-    let url = "http://localhost:8080/signout";
+    let url = "routes/signout.php";
     let options = {
         method: 'GET'
     }
