@@ -1,7 +1,7 @@
 <?php
 $servername = "127.0.0.1";
-$db_user = "user";
-$db_pass = "password";
+$db_user = "root";
+$db_pass = "";
 $dbname = "memorygame";
 $request = $_SERVER['REQUEST_URI'];
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $db_user, $db_pass);

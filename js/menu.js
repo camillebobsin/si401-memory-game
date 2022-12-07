@@ -1,5 +1,5 @@
 function getData() {
-    let url = "routes/get-user-historic.php";
+    let url = "routes/get-historic.php";
     let options = {
         method: 'GET'
     }
